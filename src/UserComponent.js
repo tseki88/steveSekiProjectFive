@@ -16,7 +16,7 @@ class UserComponent extends Component {
     render() {
         return( 
             // Is this ternary even needed...? 
-            this.props.userbaseObjects.userName === ""
+            (this.props.userbaseObjects.userName === "" && this.props.userbaseObjects.length === 1) 
                 ?
             <div className="userComponent">
                 <div className="userName cell defaultOnLoad"><span>+</span> {userbaseOnLoad[0].userName}</div>

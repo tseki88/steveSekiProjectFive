@@ -30,6 +30,9 @@ class ScoreTrackTool extends Component {
             userScore: [0]
             // find a way to match the number of 0's on this userScore with this.state.scoreType.length
         }
+        for (let i = newUserObject.userScore.length; i < this.state.scoreType.length; i++) {
+            newUserObject.userScore.push(0);
+        }
         newUserbaseObjectsArray.push(newUserObject)
         this.setState({
             userbaseObjects: newUserbaseObjectsArray
