@@ -1,0 +1,30 @@
+### Pseudo Code
+--[userbase object]
+    -[user object]
+        -[user name] : string
+        -[score array ]
+            -[0 ] : number
+            -[1 ] : number
+            -[2 ] : number
+            -[3 ] : number
+    -[user object]
+        -[user name] : string
+        -[score array ]
+            -[0 ] : number
+            -[1 ] : number
+            -[2 ] : number
+            -[3 ] : number
+
+
+--[score type array]
+    - 0: scoreType Name
+    - 1: scoreType Name
+    - 2: scoreType Name
+    - 3: scoreType Name
+
+
+- Create a column "user component"
+- When adding a NEW user component, it will reference the score type array length, and create a scoreArray (populated with default value of [arrayNumber: 0] )
+- Render as a new additional column, with each score value inside an input jsx element (so that the input can be updated), which will then rerender and update the userobject referenced.
+- Make a main component with grid properties (css grid)
+- When adding a new scoreType, it will push a new object in the score type array and also push a new scoreType for each user object

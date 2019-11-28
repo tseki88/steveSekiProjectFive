@@ -20,3 +20,19 @@
 .App-link {
   color: #09d3ac;
 }
+
+.flex {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.cell {
+  width: 200px;
+  height: 90px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.defaultOnLoad {
+  text-transform: capitalize;
+}
