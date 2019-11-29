@@ -20,13 +20,14 @@ Have a functional Score Tracker Component with the ability to
 - [x] Add new rows (score type)
 - [x] editable name cell
 - [x] editable score cell
-- [ ] sum component
-- [ ] ability to remove columns and rows (on confirm)
+- [x] sum component
+- [x] ability to remove columns and rows (on confirm)
 - [ ] Utilize Firebase to store scoreboard
 - [ ] implement CSS grid (responsive properties)
 
 
 ### Stretch Goals
+- Make 
 - Draggable score rows and columns (to rearrange order)?
 - Make another component, which can be added to the interface. (Tally Counter)
 - Ability to add and remove (with confirmation) multiple components on the interface.

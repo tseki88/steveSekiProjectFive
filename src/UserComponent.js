@@ -4,6 +4,11 @@ class UserComponent extends Component {
     render() {
         return( 
             <div className="userComponent" key={this.props.keyValue}>
+                <div 
+                    className="delete" 
+                    onClick={(e) => {if (window.confirm('Please Confirm Delete')) this.props.removeUserObject(e)}} 
+                    id={this.props.keyValue}
+                >x</div>
                 <input type="text" placeholder="Enter User" className="userName cell" 
                 onChange={(e) => this.props.handleUserNameChange(e)} 
                 id={this.props.keyValue} value={this.props.userName} />

@@ -29,8 +29,9 @@
 .cell {
   position: relative;
   width: 200px;
+  min-width: 200px;
   height: 90px;
-  border: 1px solid black;
+  border: 1px solid grey;
   text-align: center;
 }
 
@@ -38,6 +39,26 @@
   text-transform: capitalize;
 }
 
+.defaultCell,
+.sumRow .cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .sumRow .cell {
   border-top: 5px solid black;
+}
+
+.userComponent,
+.relative {
+  position: relative;
+}
+
+.delete {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+  cursor: pointer;
 }
