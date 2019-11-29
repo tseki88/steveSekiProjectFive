@@ -27,6 +27,7 @@
 }
 
 .cell {
+  position: relative;
   width: 200px;
   height: 90px;
   border: 1px solid black;
@@ -35,4 +36,8 @@
 
 .defaultOnLoad {
   text-transform: capitalize;
+}
+
+.sumRow .cell {
+  border-top: 5px solid black;
 }

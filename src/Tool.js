@@ -5,18 +5,9 @@ class ScoreTrackTool extends Component {
     constructor() {
         super();
         this.state = {
-            userbaseObjects: [
-                {
-                    userName: "Steve",
-                    userScore: [0],
-                },
-                {
-                    userName: "Nuno",
-                    userScore: [5],
-                }
-            ],
+            userbaseObjects: [],
             scoreType: [
-                "hello"
+                ""
             ],
         }
     };
@@ -39,12 +30,19 @@ class ScoreTrackTool extends Component {
         })
     }
 
-    handleScoreTypeChange = (e) => {
-        // Spreads existing values for scoreType into a copy, and then setState to the ScoreTypeCopy with the updated value.
-        let updatedScoreTypeSpreadArray = [...this.state.scoreType];
-        updatedScoreTypeSpreadArray[parseInt(e.target.id)] = e.target.value;
+    handleUserNameChange = (e) => {
+        let updatedUserbaseObjectsArray = [...this.state.userbaseObjects];
+        updatedUserbaseObjectsArray[e.target.id].userName = e.target.value;
         this.setState({
-            scoreType: updatedScoreTypeSpreadArray
+            userbaseObjects: updatedUserbaseObjectsArray
+        })
+    }
+
+    handleCellValueChange = (e) => {
+        let updatedUserbaseObjectsArray = [...this.state.userbaseObjects];
+        updatedUserbaseObjectsArray[e.target.name].userScore[e.target.id] = e.target.value;
+        this.setState({
+            userbaseObjects: updatedUserbaseObjectsArray
         })
     }
 
@@ -55,13 +53,14 @@ class ScoreTrackTool extends Component {
         this.setState({
             scoreType: newScoreTypeSpreadArray
         });
-        
+
         // Goes through each userObject's userscore array, and add a 0 at the end
         let updatedUserbaseObject = [...this.state.userbaseObjects];
         updatedUserbaseObject.map((userObject) => {
             let copyUserScoreArray = [...userObject.userScore];
             copyUserScoreArray.push(0);
             userObject.userScore = copyUserScoreArray;
+            return copyUserScoreArray
         });
         // This will then rerender and add another box to each user component
         this.setState({
@@ -69,24 +68,28 @@ class ScoreTrackTool extends Component {
         });
     }
 
+    handleScoreTypeChange = (e) => {
+        // Spreads existing values for scoreType into a copy, and then setState to the ScoreTypeCopy with the updated value.
+        let updatedScoreTypeSpreadArray = [...this.state.scoreType];
+        updatedScoreTypeSpreadArray[parseInt(e.target.id)] = e.target.value;
+        this.setState({
+            scoreType: updatedScoreTypeSpreadArray
+        })
+    }
 
     render() {
         return (
             <div>
                 <div className="flex scoreContainer">
                     <div>
-                        <div className="cell emptyCell">X</div>
-                        {this.state.scoreType.length === 0 
-                            ? 
-                            <div className="cell scoreType defaultOnLoad"><span>+</span> add score category</div> 
-                            : 
-                            this.state.scoreType.map((scoreTypeName, i) => {
-                                return(
-                                    <div key={i}>
-                                        <input ref="stringInput" type="text" className="cell scoreType" onChange={this.handleScoreTypeChange} value={this.state.scoreType[i]} key={i} id={i} />
-                                    </div>
-                                )
-                            }) }
+                        <div className="cell emptyCell">Score Category</div>
+                        {this.state.scoreType.map((scoreTypeName, i) => {
+                            return(
+                                <div key={i}>
+                                    <input ref="stringInput" placeholder="Enter Score Category" type="text" className="cell scoreType" onChange={this.handleScoreTypeChange} value={this.state.scoreType[i]} key={i} id={i} />
+                                </div>
+                            )
+                        }) }
                     </div>
                     {this.state.userbaseObjects.map((userObject, i) => {
                         return(
@@ -97,12 +100,23 @@ class ScoreTrackTool extends Component {
                             scoreTypeReferenceRow={i}
                             keyValue={i}
                             key={i}
+                            handleUserNameChange={this.handleUserNameChange}
+                            handleCellValueChange={this.handleCellValueChange}
                         />
                         )
                     })}
-                    <button onClick={this.addNewUserObject}>+</button>
+                    <button className="cell" onClick={this.addNewUserObject}>+ User</button>
                 </div>
-                <button onClick={this.addNewScoreCategory}>ADD</button>
+                <div className="sumRow flex">
+                    <div className="cell">Total</div>
+                    {this.state.userbaseObjects.map((userObject, i) => {
+                        return(
+                        <div className="cell" key={i}>
+                            {this.state.userbaseObjects[i].userScore.reduce((a,b) => parseInt(a) + parseInt(b), 0)}</div>
+                        )
+                    })}
+                </div>
+                <button onClick={this.addNewScoreCategory}>+ Score Category</button>
             </div>
         );
     };

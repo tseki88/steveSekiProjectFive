@@ -16,10 +16,15 @@ The user can add, lock and remove components
 
 ### MVP
 Have a functional Score Tracker Component with the ability to
-- Add Delete Update new columns (users)
-- Add Delete Update new rows (score type)
-- Show Total Score on bottom row
-- Utilize Firebase to store scoreboard
+- [x] Add new columns (users)
+- [x] Add new rows (score type)
+- [x] editable name cell
+- [x] editable score cell
+- [ ] sum component
+- [ ] ability to remove columns and rows (on confirm)
+- [ ] Utilize Firebase to store scoreboard
+- [ ] implement CSS grid (responsive properties)
+
 
 ### Stretch Goals
 - Draggable score rows and columns (to rearrange order)?
