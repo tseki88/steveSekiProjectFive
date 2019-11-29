@@ -22,9 +22,9 @@ Have a functional Score Tracker Component with the ability to
 - [x] editable score cell
 - [x] sum component
 - [x] ability to remove columns and rows (on confirm)
-- [ ] Utilize Firebase to store scoreboard
+- [x] Utilize Firebase to store scoreboard
 - [ ] implement CSS grid (responsive properties)
-
+- [ ] Session Name
 
 ### Stretch Goals
 - Make 

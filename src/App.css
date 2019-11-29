@@ -28,22 +28,11 @@
 
 .cell {
   position: relative;
-  width: 200px;
-  min-width: 200px;
-  height: 90px;
+  width: 130px;
+  min-width: 130px;
+  height: 60px;
   border: 1px solid grey;
   text-align: center;
-}
-
-.defaultOnLoad {
-  text-transform: capitalize;
-}
-
-.defaultCell,
-.sumRow .cell {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .sumRow .cell {

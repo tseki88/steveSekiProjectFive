@@ -57,10 +57,6 @@ class ScoreTrackTool extends Component {
         newUserbaseObjectsArray.push(newUserObject)
 
         userDbRef.set(newUserbaseObjectsArray)
-
-        // this.setState({
-        //     userbaseObjects: newUserbaseObjectsArray
-        // })
     }
 
     removeUserObject = (e) => {
@@ -69,10 +65,6 @@ class ScoreTrackTool extends Component {
         copyUserbaseObjectsArray.splice(e.target.id, 1);
         
         userDbRef.set(copyUserbaseObjectsArray)
-        
-        // this.setState({
-        //     userbaseObjects: copyUserbaseObjectsArray
-        // })
     }
 
     handleUserNameChange = (e) => {
@@ -81,9 +73,6 @@ class ScoreTrackTool extends Component {
         updatedUserbaseObjectsArray[e.target.id].userName = e.target.value;
         
         userDbRef.set(updatedUserbaseObjectsArray)
-        // this.setState({
-        //     userbaseObjects: updatedUserbaseObjectsArray
-        // })
     }
 
     handleCellValueChange = (e) => {
@@ -92,9 +81,6 @@ class ScoreTrackTool extends Component {
         updatedUserbaseObjectsArray[e.target.name].userScore[e.target.id] = e.target.value;
 
         userDbRef.set(updatedUserbaseObjectsArray)
-        // this.setState({
-        //     userbaseObjects: updatedUserbaseObjectsArray
-        // })
     }
 
     addNewScoreCategory = () => {
@@ -104,11 +90,8 @@ class ScoreTrackTool extends Component {
         newScoreTypeSpreadArray.push("");
         
         scoreDbRef.set(newScoreTypeSpreadArray)
-        // this.setState({
-        //     scoreType: newScoreTypeSpreadArray
-        // });
 
-        // Goes through each userObject's userscore array, and add a 0 at the end
+        // Goes through each userObject's userscore array, and add a 0 at the end (for the new score category)
         const userDbRef = firebase.database().ref("userbaseObjects");
         let updatedUserbaseObject = [...this.state.userbaseObjects];
         updatedUserbaseObject.forEach((userObject) => {
@@ -117,20 +100,14 @@ class ScoreTrackTool extends Component {
             userObject.userScore = copyUserScoreArray;
         });
         // This will then rerender and add another box to each user component
-        
         userDbRef.set(updatedUserbaseObject)
-        // this.setState({
-        //     userbaseObjects: updatedUserbaseObject
-        // });
     }
 
     removeScoreCategory = (e) => {
         const scoreDbRef = firebase.database().ref("scoreType");
         let updatedScoreTypeSpreadArray = [...this.state.scoreType];
         updatedScoreTypeSpreadArray.splice(e.target.id, 1);
-        // this.setState({
-        //     scoreType:  updatedScoreTypeSpreadArray
-        // })
+
         scoreDbRef.set(updatedScoreTypeSpreadArray)
 
         const userDbRef = firebase.database().ref("userbaseObjects");
@@ -140,20 +117,13 @@ class ScoreTrackTool extends Component {
         })
 
         userDbRef.set(updatedUserbaseObject)
-        // this.setState({
-        //     userbaseObjects: updatedUserbaseObject
-        // })
     }
 
     handleScoreTypeChange = (e) => {
-        // Spreads existing values for scoreType into a copy, and then setState to the ScoreTypeCopy with the updated value.
         const scoreDbRef = firebase.database().ref("scoreType");
         let updatedScoreTypeSpreadArray = [...this.state.scoreType];
         updatedScoreTypeSpreadArray[parseInt(e.target.id)] = e.target.value;
         scoreDbRef.set(updatedScoreTypeSpreadArray)
-        // this.setState({
-        //     scoreType: updatedScoreTypeSpreadArray
-        // })
     }
 
     render() {
@@ -161,13 +131,19 @@ class ScoreTrackTool extends Component {
             <div>
                 <div className="flex scoreContainer">
                     <div>
-                        <div className="defaultCell cell"> 
+                        <div className="cell"> 
                             <button onClick={this.addNewScoreCategory}>+ Score Category</button>
                         </div>
                         {this.state.scoreType.map((scoreTypeName, i) => {
                             return(
                                 <div className="relative" key={i}>
+                                    {
+                                    this.state.scoreType.length !== 1
+                                        ?
                                     <div className="delete" onClick={(e) => { if (window.confirm('Pleaes Confirm Delete')) this.removeScoreCategory(e)}} id={i}>x</div>
+                                        :
+                                    null
+                                    }
                                     <input ref="stringInput" placeholder="Enter Score Category" type="text" className="cell scoreType" onChange={this.handleScoreTypeChange} value={this.state.scoreType[i]} key={i} id={i} />
                                 </div>
                             )
@@ -178,7 +154,8 @@ class ScoreTrackTool extends Component {
                         <UserComponent 
                             userName={userObject.userName} 
                             userScoreArray={userObject.userScore} 
-                            userbaseObjects={userObject} 
+                            userbaseObjects={userObject}
+                            userbaseData={this.state.userbaseObjects}
                             scoreTypeReferenceRow={i}
                             keyValue={i}
                             key={i}
