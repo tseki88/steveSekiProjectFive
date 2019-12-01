@@ -4,9 +4,9 @@ import ToolContainer from './ToolContainer';
 class Main extends Component {
     render() {
         return (
-            <div>
+            <>
                 <ToolContainer />
-            </div>
+            </>
         );
     };
 };

@@ -23,8 +23,10 @@ Have a functional Score Tracker Component with the ability to
 - [x] sum component
 - [x] ability to remove columns and rows (on confirm)
 - [x] Utilize Firebase to store scoreboard
-- [ ] implement CSS grid (responsive properties)
-- [ ] Session Name
+- [x] implement CSS grid (responsive properties)
+- [x] Session Name
+- [ ] Styling
+- [ ] Responsive
 
 ### Stretch Goals
 - Make 

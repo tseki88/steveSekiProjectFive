@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import ScoreTrackTool from './Tool';
+import SessionHeader from './SessionHeader';
+import ToolScoreTrack from './ToolScoreTrack';
+
 
 class ToolContainer extends Component {
     render() {
         return (
             <div className="toolContainer">
-                <ScoreTrackTool />
+                <SessionHeader />
+                <ToolScoreTrack />
             </div>
         );
     };

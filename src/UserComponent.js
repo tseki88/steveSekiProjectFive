@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class UserComponent extends Component {
     render() {
         return( 
-            <div className="userComponent" key={this.props.keyValue}>
+            <div className="userComponent relative" key={this.props.keyValue}>
                 {
                 this.props.userbaseData.length !== 1
                     ?
-                <div className="delete" 
+                <button className="delete deleteUserObject" 
                 onClick={(e) => {if (window.confirm('Please Confirm Delete')) this.props.removeUserObject(e)}} 
                 id={this.props.keyValue}
-                >x</div>
+                >x</button>
                     :
                 null
                 }
@@ -19,9 +20,9 @@ class UserComponent extends Component {
                 id={this.props.keyValue} value={this.props.userName} />
                 {this.props.userScoreArray.map((scoreValue, i) => {
                     return(
-                        <div key={i}>
+                        <React.Fragment key={i}>
                             <input type="number" className="cell" key={i} name={this.props.keyValue} id={i} onChange={(e) => this.props.handleCellValueChange(e)}value={scoreValue} />    
-                        </div>
+                        </React.Fragment>
                     )
                 }) }
             </div>

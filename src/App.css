@@ -1,53 +1,123 @@
-.App {
+/* 
+#5d737e - Payne's Grey
+#64b6ac - Green Sheen
+#c0fdfb - Italian Sky Blue
+#daffef - Light Cyan
+#f1fff9 - Mint Cream
+#fcfffd - White
+*/
+
+
+
+.app {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
+  background-color: #c0fdfb;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+h1 {
+  margin: 0;
 }
 
-.flex {
-  display: flex;
-  flex-wrap: nowrap;
+.toolContainer {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #daffef;
+  padding: 30px 80px;
+  border: 2px solid #5d737e;
+  border-radius: 10px;
+}
+
+.sessionName {
+  font-size: 1.6rem;
+  margin: 0 20px 20px;
+  text-align: center; 
+  border: none;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.editIcon {
+  color: lightgray;
+}
+
+.checkIcon {
+  color: green;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
 }
 
 .cell {
-  position: relative;
-  width: 130px;
-  min-width: 130px;
+  border: 1px solid #5d737e;
+  background-color: #f1fff9;
+}
+
+.scoreContainer {
+  border: 2px solid #5d737e;
+  border-radius: 10px;
+}
+
+.cell {
+  width: 100%;
   height: 60px;
-  border: 1px solid grey;
   text-align: center;
 }
 
 .sumRow .cell {
-  border-top: 5px solid black;
+  border-top: 5px solid #5d737e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
 }
 
-.userComponent,
 .relative {
   position: relative;
 }
 
+.addUserObjectIcon,
+.addScoreTypeIcon,
 .delete {
   position: absolute;
-  top: 10px;
-  right: 10px;
+}
+
+.addUserObjectIcon,
+.addScoreTypeIcon {
+  width: 50px;
+  /* height:60px; */
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.addUserObjectIcon {
+  top: 20px;
+  right: -50px;
+}
+
+.addScoreTypeIcon {
+  bottom: 15px;
+  left: -40px;
+}
+
+.delete {
+  background: none;
+  border: none;
+  top: 5px;
   z-index: 10;
   cursor: pointer;
+}
+
+.deleteScoreType {
+  left: 10px;
+}
+
+.deleteUserObject {
+  right: 10px;
 }
