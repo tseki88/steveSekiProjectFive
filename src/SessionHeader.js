@@ -7,7 +7,7 @@ class SessionHeader extends Component {
     constructor() {
         super();
         this.state = {
-            sessionName: "Session",
+            sessionName: "",
             sessionNameEdit: false,
         }
     }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import UserComponent from './UserComponent'
 import firebase from './firebase';
+import alert from './sweetAlert';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPlus, faPlus } from '@fortawesome/free-solid-svg-icons'
 
@@ -62,10 +63,10 @@ class ToolScoreTrack extends Component {
         userDbRef.set(newUserbaseObjectsArray);
     };
 
-    removeUserObject = (e) => {
+    removeUserObject = (scoreIndex) => {
         const userDbRef = firebase.database().ref("userbaseObjects");
         const copyUserbaseObjectsArray = [...this.state.userbaseObjects];
-        copyUserbaseObjectsArray.splice(e.target.id, 1);
+        copyUserbaseObjectsArray.splice(scoreIndex, 1);
         
         userDbRef.set(copyUserbaseObjectsArray);
     };
@@ -106,17 +107,17 @@ class ToolScoreTrack extends Component {
         userDbRef.set(updatedUserbaseObject);
     };
 
-    removeScoreCategory = (e) => {
+    removeScoreCategory = (scoreIndex) => {
         const scoreDbRef = firebase.database().ref("scoreType");
         const updatedScoreTypeSpreadArray = [...this.state.scoreType];
-        updatedScoreTypeSpreadArray.splice(e.target.id, 1);
+        updatedScoreTypeSpreadArray.splice(scoreIndex, 1);
 
         scoreDbRef.set(updatedScoreTypeSpreadArray);
 
         const userDbRef = firebase.database().ref("userbaseObjects");
         const updatedUserbaseObject = [...this.state.userbaseObjects];
         updatedUserbaseObject.forEach((userObject) => {
-            userObject.userScore.splice(e.target.id, 1);
+            userObject.userScore.splice(scoreIndex, 1);
         });
 
         userDbRef.set(updatedUserbaseObject);
@@ -169,20 +170,19 @@ class ToolScoreTrack extends Component {
                 <div className="grid relative">
                     <div>
                         <div className="cell"> 
-                            <button onClick={() => {if (window.confirm('Are you sure you want to reset to initial state?')) this.resetComponent()}}>Reset All</button>
-                            <button onClick={() => {if (window.confirm('Clear Score?')) this.clearScore()}}>Clear Score</button>
+                            <button onClick={() => {alert(() => this.resetComponent())}}>Reset All</button>
+                            <button onClick={() => {alert(() => this.clearScore())}}>Clear Score</button>
                         </div>
                         {this.state.scoreType.map((scoreTypeName, i) => {
                             return(
                                 <div className="relative" key={i}>
                                     {
                                     this.state.scoreType.length !== 1
-                                        ?
-                                    <button className="delete deleteScoreType" onClick={(e) => { if (window.confirm('Pleaes Confirm Delete')) this.removeScoreCategory(e)}} id={i}>x</button>
-                                        :
-                                    null
+                                        &&
+                                    <button className="delete deleteScoreType" 
+                                    onClick={() => {alert(() => this.removeScoreCategory(i))}} id={i}>x</button>
                                     }
-                                    <input placeholder="Category Name" type="text" className="cell scoreType" onChange={this.handleScoreTypeChange} value={this.state.scoreType[i]} key={i} id={i} />
+                                    <input placeholder="Category Name" type="text" className="cell scoreType" onChange={this.handleScoreTypeChange} value={scoreTypeName} id={i} />
                                 </div>
                             )
                         }) }
@@ -193,8 +193,6 @@ class ToolScoreTrack extends Component {
                     {this.state.userbaseObjects.map((userObject, i) => {
                         return(
                         <UserComponent 
-                            userName={userObject.userName} 
-                            userScoreArray={userObject.userScore} 
                             userbaseObjects={userObject}
                             userbaseData={this.state.userbaseObjects}
                             scoreTypeReferenceRow={i}

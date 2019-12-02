@@ -29,9 +29,15 @@ Have a functional Score Tracker Component with the ability to
 - [ ] Responsive
 
 ### Stretch Goals
-- Make 
 - Draggable score rows and columns (to rearrange order)?
-- Make another component, which can be added to the interface. (Tally Counter)
+- Login authentication
+- Make another component, which can be added to the interface. 
+    - Game Duration Timer
+    - Count Down Timer
+    - Dice Roller
+        - multiple sided dice
+    - listed notes (for roleplaying)
+    - Tally Counter
 - Ability to add and remove (with confirmation) multiple components on the interface.
 - Ability to lock the component, to prevent removal.
 - Draggable Component Renderer

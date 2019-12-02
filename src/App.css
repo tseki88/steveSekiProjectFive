@@ -40,6 +40,8 @@ h1 {
 }
 
 .editIcon {
+  margin-left: 20px;
+  font-size: 1.2rem;
   color: lightgray;
 }
 
@@ -49,23 +51,20 @@ h1 {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-}
-
-.cell {
-  border: 1px solid #5d737e;
-  background-color: #f1fff9;
-}
-
-.scoreContainer {
-  border: 2px solid #5d737e;
-  border-radius: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
 }
 
 .cell {
   width: 100%;
   height: 60px;
   text-align: center;
+  border: 1px dotted #5d737e;
+  background-color: #f1fff9;
+}
+
+.scoreContainer {
+  border: 2px solid #5d737e;
+  border-radius: 10px;
 }
 
 .sumRow .cell {
@@ -88,8 +87,7 @@ h1 {
 
 .addUserObjectIcon,
 .addScoreTypeIcon {
-  width: 50px;
-  /* height:60px; */
+  width: 30px;
   background: none;
   border: none;
   font-size: 1.2rem;
@@ -98,12 +96,12 @@ h1 {
 
 .addUserObjectIcon {
   top: 20px;
-  right: -50px;
+  right: -35px;
 }
 
 .addScoreTypeIcon {
   bottom: 15px;
-  left: -40px;
+  left: -35px;
 }
 
 .delete {
@@ -115,9 +113,9 @@ h1 {
 }
 
 .deleteScoreType {
-  left: 10px;
+  left: 1%;
 }
 
 .deleteUserObject {
-  right: 10px;
+  right: 1%;
 }
