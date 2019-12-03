@@ -122,16 +122,6 @@ button {
   color: #011627;
 }
 
-button:hover,
-button:focus {
-  transform: scale(1.03);
-  color: #011627;
-}
-
-button:focus {
-  color: #ff3366;
-}
-
 .scoreButtons {
   width: 100%;
   position: absolute;
@@ -198,6 +188,16 @@ Add Score Type Button Icon */
   color: #f6f7f8;
   background-color: #20a4f3;
   flex: 0 1 200px;
+}
+
+button:hover,
+button:focus {
+  transform: scale(1.03);
+  color: #011627;
+}
+
+button:focus {
+  color: #ff3366;
 }
 
 button:disabled {
