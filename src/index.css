@@ -198,6 +198,7 @@ button:focus {
 
 button:focus {
   color: #ff3366;
+  font-size: 1.4rem;
 }
 
 button:disabled {
