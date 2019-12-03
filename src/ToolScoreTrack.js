@@ -178,7 +178,7 @@ class ToolScoreTrack extends Component {
 
                     
                     <div className="grid relative">
-                        <div>
+                        <div className="scoreTypeContainer">
                             <div className="cell emptyCell"> 
                             </div>
                             {this.state.scoreType.map((scoreTypeName, i) => {

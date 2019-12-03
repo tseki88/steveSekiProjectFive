@@ -68,7 +68,7 @@ button:focus {
 }
 
 button:focus {
-  border: 2px solid #ff3366;
+  color: #ff3366;
 }
 
 .buttonFlex button {
@@ -289,9 +289,26 @@ button:disabled {
   }
   
   .grid {
-    grid-auto-flow: column;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* grid-auto-flow: column; */
+    /* grid-template-columns: 3, repeat(auto, minmax(30%, 1fr); */
+    display: flex;
+    flex-wrap: nowrap;
   }
+
+  .scoreType {
+    display: block;
+  }
+
+  .scoreTypeContainer,
+  .userComponent,
+  .sumRow .cell {
+    width: 50%;
+    min-width: 50%;
+  }
+
+  /* .scoreType {
+    min-width: 200px;
+  } */
   
   .gridsContainer {
     overflow-x: scroll;
