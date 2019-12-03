@@ -22,4 +22,14 @@ const alert = (deleteFunction) => MySwal.fire({
     }
 });
 
+const alertTime = () => MySwal.fire({
+    title: 'Time is Up!!',
+    icon: 'warning',
+    // showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Reset'
+});
+
 export default alert;
+export { alertTime };

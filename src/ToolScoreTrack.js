@@ -167,6 +167,7 @@ class ToolScoreTrack extends Component {
     render() {
         return (
             <div className="scoreContainer">
+                <h3>Score Card</h3>
                 <div className="grid relative">
                     <div>
                         <div className="cell"> 

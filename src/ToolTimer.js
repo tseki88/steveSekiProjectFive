@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {alertTime} from './sweetAlert';
 
 class ToolTimer extends Component {
     constructor() {
@@ -37,6 +38,15 @@ class ToolTimer extends Component {
     }
 
     step = () => {
+        if (this.state.time === 1) {
+            this.setState({
+                running: false,
+                setTimer: true,
+            })
+            alertTime();
+        }
+
+
         this.setState({
             time: this.state.time - 1
         })
@@ -62,6 +72,7 @@ class ToolTimer extends Component {
 
         return (
             <div className="timerContainer">
+                <h3>Timer</h3>
                 {this.state.setTimer === true
                     ?
                 <div>
