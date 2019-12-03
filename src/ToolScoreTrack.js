@@ -38,6 +38,7 @@ class ToolScoreTrack extends Component {
         userDbRef.on(("value"), (response) => {
             const newState = [];
             const data = response.val();
+            console.log(data);
             for (let key in data) {
                 newState.push(data[key]);
             };
