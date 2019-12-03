@@ -20,7 +20,6 @@ class ToolScoreTrack extends Component {
 
     componentDidMount() {
         const scoreDbRef = firebase.database().ref("scoreType");
-
         scoreDbRef.on("value", (response) => {
             const newState = [];
             const data = response.val();
@@ -33,6 +32,7 @@ class ToolScoreTrack extends Component {
             });
         });
 
+        // reminder for cleanup: check .on || setState returns a Promise? if so use aync and await || .then()
         setTimeout(() => {            
             const userDbRef = firebase.database().ref("userbaseObjects");
             userDbRef.on(("value"), (response) => {

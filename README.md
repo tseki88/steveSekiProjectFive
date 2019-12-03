@@ -42,28 +42,28 @@ Have a functional Score Tracker Component with the ability to
     - [ ] Team Randomizer
 
 ### Pseudo Code
---[userbase object]
-    -[user object]
-        -[user name] : string
-        -[score array ]
-            -[0 ] : number
-            -[1 ] : number
-            -[2 ] : number
-            -[3 ] : number
-    -[user object]
-        -[user name] : string
-        -[score array ]
-            -[0 ] : number
-            -[1 ] : number
-            -[2 ] : number
-            -[3 ] : number
+- -[userbase object]
+    - -[user object]
+        - -[user name] : string
+        - -[score array ]
+            - -[0 ] : number
+            - -[1 ] : number
+            - -[2 ] : number
+            - -[3 ] : number
+    - -[user object]
+        - -[user name] : string
+        - -[score array ]
+            - -[0 ] : number
+            - -[1 ] : number
+            - -[2 ] : number
+            - -[3 ] : number
 
 
---[score type array]
-    - 0: scoreType Name
-    - 1: scoreType Name
-    - 2: scoreType Name
-    - 3: scoreType Name
+- -[score type array]
+    - -[0 ]: scoreType Name
+    - -[1 ]: scoreType Name
+    - -[2 ]: scoreType Name
+    - -[3 ]: scoreType Name
 
 
 - Create a column "user component"
