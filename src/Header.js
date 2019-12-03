@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 class Header extends Component {
     render() {
         return (
-            <h1>Placeholder</h1>
+            <h1>Board Game Tool Kit</h1>
         );
     };
 };

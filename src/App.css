@@ -4,7 +4,7 @@ ff3366
 2ec4b6
 f6f7f8
 20a4f3 */
-
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap');
 
 .app {
   text-align: center;
@@ -12,7 +12,10 @@ f6f7f8
   min-height: 100vh;
 }
 
-h1 {
+h1,
+footer {
+  color: #f6f7f8;
+  padding: 20px;
   margin: 0;
 }
 
@@ -32,7 +35,7 @@ h1 {
 }
 
 .toolContainer {
-  width: 80%;
+  width: 90%;
   margin: 2px 4px;
   background-color: #f6f7f8;
   padding: 30px 80px;
@@ -43,21 +46,35 @@ h1 {
 .buttonFlex {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 button {
+  width: 230px;
   border: none;
   margin: 3px;
   padding: 5px 15px;
   border-radius: 10px;
   font-size: 1.2rem;
   line-height: 2rem;
-  color: #f6f7f8;
-  background-color: #20a4f3;
+  background-color: #2ec4b6;
+  color: #011627;
+}
+
+button:hover,
+button:focus {
+  transform: scale(1.03);
+  color: #011627;
+}
+
+button:focus {
+  border: 3px solid #ff3366;
 }
 
 .buttonFlex button {
-  flex: 1 1 calc(50% - 12px);
+  color: #f6f7f8;
+  background-color: #20a4f3;
+  flex: 0 1 230px;
 }
 
 button:disabled {
@@ -65,15 +82,25 @@ button:disabled {
 }
 
 .halfContainer {
-  width: 40%;
+  width: 45%;
   margin: 2px;
 }
 
 .sessionName {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   margin: 0 20px 20px;
   text-align: center; 
   border: none;
+}
+
+.sessionName::before {
+  position: absolute;
+  content: "session name: ";
+  color: #5d737e;
+  font-size: 1rem;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .icon {
@@ -81,9 +108,12 @@ button:disabled {
 }
 
 .editIcon {
-  margin-left: 20px;
+  position: absolute;
   font-size: 1.2rem;
   color: lightgray;
+  top: 50%;
+  right: 40%;
+  transform: translateY(-50%);
 }
 
 .checkIcon {
@@ -92,7 +122,7 @@ button:disabled {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
 }
 
 .cell {
@@ -101,12 +131,31 @@ button:disabled {
   text-align: center;
   border: 1px solid #011627;
   background-color: #f6f7f8;
+  font-size: 1.3rem;
 }
 
 .scoreContainer {
   background-color: #2ec4b6;
-  border: 4px solid #011627;
+  border: 5px solid #011627;
   border-radius: 10px;
+  margin-bottom: 50px;
+}
+
+.userName,
+.scoreType,
+.emptyCell,
+.sumRow .cell {
+  font-weight: bold;
+  font-size: 1.5rem;
+  background-color: #e0e1e2;
+}
+
+.scoreButtons {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  bottom: -70px;
 }
 
 .sumRow .cell {
@@ -114,13 +163,20 @@ button:disabled {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 .timeDisplay {
-  letter-spacing: 5px;
   font-size: 1.8rem;
   font-weight: bold;
+  font-family: 'Inconsolata', monospace;
+  letter-spacing: 5px;
+  background-color: #011627;
+  color: #f6f7f8;
+  padding: 10px 20px;
+  border-radius: 15px;
+  margin: 20px;
+  display: inline-block;
 }
 
 .relative {
@@ -135,29 +191,31 @@ button:disabled {
 
 .addUserObjectIcon,
 .addScoreTypeIcon {
-  width: 30px;
+  width: 50px;
   background: none;
-  color: black;
+  color: #011627;
   font-size: 1.2rem;
   cursor: pointer;
 }
 
 .addUserObjectIcon {
   top: 10px;
-  right: -35px;
+  right: -60px;
 }
 
 .addScoreTypeIcon {
   bottom: 5px;
-  left: -50px;
+  left: -60px;
 }
 
 .delete {
+  color: #011627;
   background: none;
   border: none;
   top: 5px;
   z-index: 10;
   cursor: pointer;
+  width: initial;
 }
 
 .deleteScoreType {

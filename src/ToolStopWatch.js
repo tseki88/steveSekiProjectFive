@@ -47,12 +47,14 @@ class ToolStopWatch extends Component {
         return (
             <div className="timerContainer">
                 <h3>Stop Watch</h3>
-                <p className="timeDisplay">{this.format()}</p>
+                <div>
+                    <p className="timeDisplay">{this.format()}</p>
+                </div>
                 {this.state.running === false
                     ?
-                <button onClick={this.toggleTimer} onKeyPress={(e) => {if (e.key === ' '){this.toggleTimer()}}}>Start</button>
+                <button onClick={this.toggleTimer}>Start</button>
                     :
-                <button onClick={this.toggleTimer} onKeyPress={(e) => { if (e.key === ' ') { this.toggleTimer() } }}>Pause</button>
+                <button onClick={this.toggleTimer}>Pause</button>
                 }
                 <button onClick={this.resetTimer} disabled={this.state.running}>Reset</button>
             </div>

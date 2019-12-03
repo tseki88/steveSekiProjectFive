@@ -166,13 +166,11 @@ class ToolScoreTrack extends Component {
 
     render() {
         return (
-            <div className="scoreContainer">
+            <div className="scoreContainer relative">
                 <h3>Score Card</h3>
                 <div className="grid relative">
                     <div>
-                        <div className="cell"> 
-                            <button onClick={() => {alert(() => this.resetComponent())}}>Reset</button>
-                            <button onClick={() => {alert(() => this.clearScore())}}>Clear</button>
+                        <div className="cell emptyCell"> 
                         </div>
                         {this.state.scoreType.map((scoreTypeName, i) => {
                             return(
@@ -221,7 +219,10 @@ class ToolScoreTrack extends Component {
                         )
                     })}
                 </div>
-
+                <div className="scoreButtons">
+                    <button onClick={() => { alert(() => this.resetComponent()) }}>Reset</button>
+                    <button onClick={() => { alert(() => this.clearScore()) }}>Clear</button>
+                </div>
             </div>
         );
     };
