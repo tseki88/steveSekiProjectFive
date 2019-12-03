@@ -162,7 +162,7 @@ Add Score Type Button Icon */
   color: #011627;
   background: none;
   border: none;
-  top: 5px;
+  top: -10px;
   z-index: 10;
   cursor: pointer;
   width: initial;
@@ -170,11 +170,11 @@ Add Score Type Button Icon */
 }
 
 .deleteScoreType {
-  left: 1%;
+  left: -5px;
 }
 
 .deleteUserObject {
-  right: 1%;
+  right: -5px;
 }
 
 /* Button Container for Timer Tool */
@@ -303,11 +303,6 @@ button:disabled {
   .timeDisplay {
     margin: 20px 0;
     font-size: 1.6rem;
-  }
-
-  .delete {
-    top: -5px;
-    padding: 0 2px;
   }
 }
 

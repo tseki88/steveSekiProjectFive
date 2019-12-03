@@ -33,14 +33,11 @@ class ToolScoreTrack extends Component {
             });
         });
 
-        setTimeout(() => {
-
-            
+        setTimeout(() => {            
             const userDbRef = firebase.database().ref("userbaseObjects");
             userDbRef.on(("value"), (response) => {
                 const newState = [];
                 const data = response.val();
-                console.log(data);
                 for (let key in data) {
                     newState.push(data[key]);
                 };
@@ -49,8 +46,7 @@ class ToolScoreTrack extends Component {
                     userbaseObjects: newState
                 });
             });
-        }
-            , 2000)
+        }, 2000);
 
         setTimeout(() => {
             this.setState({
