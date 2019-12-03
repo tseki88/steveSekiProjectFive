@@ -8,7 +8,7 @@ class UserComponent extends Component {
                 {
                 this.props.userbaseData.length !== 1
                     &&
-                <button className="delete deleteUserObject" 
+                <button className="delete deleteUserObject" aria-label="delete user column from scoreboard" 
                 onClick={() => {
                     alert(() => this.props.removeUserObject(this.props.keyValue)) }
                 } 

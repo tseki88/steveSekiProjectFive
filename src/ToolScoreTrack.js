@@ -168,10 +168,10 @@ class ToolScoreTrack extends Component {
         return (
             <div className="scoreContainer relative">
                 <h3>Score Card</h3>
-                <button className="addScoreTypeIcon" onClick={this.addNewScoreCategory}>
+                <button className="addScoreTypeIcon" aria-label="add new score category to scoreboard" onClick={this.addNewScoreCategory}>
                     <FontAwesomeIcon icon={faPlus} />
                 </button>
-                <button className="addUserObjectIcon" onClick={this.addNewUserObject}>
+                <button className="addUserObjectIcon" aria-label="add new user to scoreboard" onClick={this.addNewUserObject}>
                     <FontAwesomeIcon icon={faUserPlus} />
                 </button>
                 <div className="gridsContainer">
@@ -187,7 +187,7 @@ class ToolScoreTrack extends Component {
                                         {
                                         this.state.scoreType.length !== 1
                                             &&
-                                        <button className="delete deleteScoreType" 
+                                        <button className="delete deleteScoreType" aria-label="delete score category row from scoreboard" 
                                         onClick={() => {alert(() => this.removeScoreCategory(i))}} id={i}>x</button>
                                         }
                                         <input placeholder="Category Name" type="text" className="cell scoreType" onChange={this.handleScoreTypeChange} value={scoreTypeName} id={i} />

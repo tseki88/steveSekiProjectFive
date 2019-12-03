@@ -41,11 +41,11 @@ class SessionHeader extends Component {
             <>
                 {this.state.sessionNameEdit === false
                     ?
-                    <h3 className="sessionName relative">{this.state.sessionName} <span className="icon editIcon" onClick={this.editEnable}><FontAwesomeIcon icon={faEdit}></FontAwesomeIcon></span> </h3>
+                    <h3 className="sessionName relative">{this.state.sessionName} <span className="icon editIcon" aria-label="edit session name" onClick={this.editEnable}><FontAwesomeIcon icon={faEdit} ></FontAwesomeIcon></span> </h3>
                     :
                     <div>
                         <input className="sessionName" type="text" onChange={this.editSessionName} value={this.state.sessionName} onKeyPress={(e) => { if (e.key === 'Enter') { this.editEnable() } }} />
-                        <span className="sessionName icon checkIcon" onClick={this.editEnable}><FontAwesomeIcon icon={faCheck} /></span>
+                        <span className="sessionName icon checkIcon" aria-label="confirm session name change" onClick={this.editEnable}><FontAwesomeIcon icon={faCheck} /></span>
                     </div>
                 }
             </>
