@@ -132,10 +132,6 @@ button:focus {
   color: #ff3366;
 }
 
-button:disabled {
-  background-color: grey;
-}
-
 .scoreButtons {
   width: 100%;
   position: absolute;
@@ -202,6 +198,10 @@ Add Score Type Button Icon */
   color: #f6f7f8;
   background-color: #20a4f3;
   flex: 0 1 200px;
+}
+
+button:disabled {
+  background-color: grey;
 }
 
 /* Icon related */
