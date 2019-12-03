@@ -4,6 +4,7 @@ import firebase from './firebase';
 import alert from './sweetAlert';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPlus, faPlus } from '@fortawesome/free-solid-svg-icons'
+import LoadingSpinner from './LoadingSpinner';
 
 class ToolScoreTrack extends Component {
     constructor() {
@@ -13,6 +14,7 @@ class ToolScoreTrack extends Component {
             scoreType: [
                 ""
             ],
+            loading: true,
         };
     };
 
@@ -44,6 +46,12 @@ class ToolScoreTrack extends Component {
                 userbaseObjects: newState
             });
         });
+
+        setTimeout(() => {
+            this.setState({
+                loading: false,
+            })
+        }, 2500);
     };
 
     addNewUserObject = () => {
@@ -165,6 +173,14 @@ class ToolScoreTrack extends Component {
     };
 
     render() {
+        if (this.state.loading) {
+            return (
+                <>
+                    <LoadingSpinner />
+                    <h3>Loading..</h3>
+                </>
+            )
+        }
         return (
             <div className="scoreContainer relative">
                 <h3>Score Card</h3>
