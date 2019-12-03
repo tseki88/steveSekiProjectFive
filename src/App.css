@@ -132,6 +132,7 @@ button:disabled {
   border: 1px solid #011627;
   background-color: #f6f7f8;
   font-size: 1.3rem;
+  border-radius: 0;
 }
 
 .scoreContainer {
@@ -289,8 +290,6 @@ button:disabled {
   }
   
   .grid {
-    /* grid-auto-flow: column; */
-    /* grid-template-columns: 3, repeat(auto, minmax(30%, 1fr); */
     display: flex;
     flex-wrap: nowrap;
   }
@@ -305,10 +304,6 @@ button:disabled {
     width: 50%;
     min-width: 50%;
   }
-
-  /* .scoreType {
-    min-width: 200px;
-  } */
   
   .gridsContainer {
     overflow-x: scroll;
