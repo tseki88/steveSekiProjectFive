@@ -8,8 +8,8 @@ const alert = (deleteFunction) => MySwal.fire({
     text: "You won't be able to revert this!",
     icon: 'warning',
     showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
+    confirmButtonColor: '#2ec4b6',
+    cancelButtonColor: '#ff3366',
     confirmButtonText: 'Yes, delete it!'
 }).then((result) => {
     if (result.value) {
@@ -25,9 +25,8 @@ const alert = (deleteFunction) => MySwal.fire({
 const alertTime = () => MySwal.fire({
     title: 'Time is Up!!',
     icon: 'warning',
-    // showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
+    confirmButtonColor: '#2ec4b6',
+    cancelButtonColor: '#ff3366',
     confirmButtonText: 'Reset'
 });
 

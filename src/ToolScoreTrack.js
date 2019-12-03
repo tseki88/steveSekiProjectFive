@@ -171,8 +171,8 @@ class ToolScoreTrack extends Component {
                 <div className="grid relative">
                     <div>
                         <div className="cell"> 
-                            <button onClick={() => {alert(() => this.resetComponent())}}>Reset All</button>
-                            <button onClick={() => {alert(() => this.clearScore())}}>Clear Score</button>
+                            <button onClick={() => {alert(() => this.resetComponent())}}>Reset</button>
+                            <button onClick={() => {alert(() => this.clearScore())}}>Clear</button>
                         </div>
                         {this.state.scoreType.map((scoreTypeName, i) => {
                             return(
