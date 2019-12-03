@@ -33,20 +33,24 @@ class ToolScoreTrack extends Component {
             });
         });
 
-        const userDbRef = firebase.database().ref("userbaseObjects");
+        setTimeout(() => {
 
-        userDbRef.on(("value"), (response) => {
-            const newState = [];
-            const data = response.val();
-            console.log(data);
-            for (let key in data) {
-                newState.push(data[key]);
-            };
-
-            this.setState({
-                userbaseObjects: newState
+            
+            const userDbRef = firebase.database().ref("userbaseObjects");
+            userDbRef.on(("value"), (response) => {
+                const newState = [];
+                const data = response.val();
+                console.log(data);
+                for (let key in data) {
+                    newState.push(data[key]);
+                };
+                
+                this.setState({
+                    userbaseObjects: newState
+                });
             });
-        });
+        }
+            , 2000)
 
         setTimeout(() => {
             this.setState({
