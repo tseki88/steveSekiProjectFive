@@ -18,7 +18,6 @@ class LoadingSpinner extends Component {
                     sizeUnit={"px"}
                     size={80}
                     color={'#ff3366'}
-                    // loading={this.state.loading}
                     loading={true}
                 />
             </div>
