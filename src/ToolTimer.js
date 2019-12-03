@@ -73,17 +73,15 @@ class ToolTimer extends Component {
         return (
             <div className="timerContainer">
                 <h3>Timer</h3>
-                {/* {this.state.setTimer === true
-                    ? */}
                 <div>
                     <p className="timeDisplay">{this.format()}</p>
                     <div className="buttonFlex">
-                        <button disabled={this.state.running} onClick={() => this.addTimerValue(1000)}>+ 10 Seconds</button>
-                        <button disabled={this.state.running} onClick={() => this.addTimerValue(3000)}>+ 30 Seconds</button>
-                        <button disabled={this.state.running} onClick={() => this.addTimerValue(6000)}>+ 1 Minute</button>
-                        <button disabled={this.state.running} onClick={() => this.addTimerValue(30000)}>+ 5 Minutes</button>
-                        <button disabled={this.state.running} onClick={() => this.addTimerValue(180000)}>+ 30 Minutes</button>
-                        <button disabled={this.state.running} onClick={() => this.addTimerValue(360000)}>+ 1 Hour</button>
+                        <button disabled={this.state.running} onClick={() => this.addTimerValue(1000)}>+ 10 sec.</button>
+                        <button disabled={this.state.running} onClick={() => this.addTimerValue(3000)}>+ 30 sec.</button>
+                        <button disabled={this.state.running} onClick={() => this.addTimerValue(6000)}>+ 1 min.</button>
+                        <button disabled={this.state.running} onClick={() => this.addTimerValue(30000)}>+ 5 min.</button>
+                        <button disabled={this.state.running} onClick={() => this.addTimerValue(180000)}>+ 30 min.</button>
+                        <button disabled={this.state.running} onClick={() => this.addTimerValue(360000)}>+ 1 hr</button>
                     </div>
                     {this.state.running === false
                         ?
@@ -93,10 +91,6 @@ class ToolTimer extends Component {
                     }
                     <button onClick={this.resetTimer} disabled={this.state.running}>Reset</button>
                 </div>
-                    {/* :
-                <div>
-                    <p className="timeDisplay">{this.format()}</p> */}
-                {/* </div> */}
             </div>
         );
     };

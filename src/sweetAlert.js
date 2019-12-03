@@ -10,12 +10,12 @@ const alert = (deleteFunction) => MySwal.fire({
     showCancelButton: true,
     confirmButtonColor: '#2ec4b6',
     cancelButtonColor: '#ff3366',
-    confirmButtonText: 'Yes, delete it!'
+    confirmButtonText: 'Yes'
 }).then((result) => {
     if (result.value) {
         Swal.fire(
             'Deleted!',
-            'Your file has been deleted.',
+            'Deleted.',
             'success'
         );
         deleteFunction();

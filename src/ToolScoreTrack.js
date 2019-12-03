@@ -168,56 +168,60 @@ class ToolScoreTrack extends Component {
         return (
             <div className="scoreContainer relative">
                 <h3>Score Card</h3>
-                <div className="grid relative">
-                    <div>
-                        <div className="cell emptyCell"> 
+                <button className="addScoreTypeIcon" onClick={this.addNewScoreCategory}>
+                    <FontAwesomeIcon icon={faPlus} />
+                </button>
+                <button className="addUserObjectIcon" onClick={this.addNewUserObject}>
+                    <FontAwesomeIcon icon={faUserPlus} />
+                </button>
+                <div className="gridsContainer">
+
+                    
+                    <div className="grid relative">
+                        <div>
+                            <div className="cell emptyCell"> 
+                            </div>
+                            {this.state.scoreType.map((scoreTypeName, i) => {
+                                return(
+                                    <div className="relative" key={i}>
+                                        {
+                                        this.state.scoreType.length !== 1
+                                            &&
+                                        <button className="delete deleteScoreType" 
+                                        onClick={() => {alert(() => this.removeScoreCategory(i))}} id={i}>x</button>
+                                        }
+                                        <input placeholder="Category Name" type="text" className="cell scoreType" onChange={this.handleScoreTypeChange} value={scoreTypeName} id={i} />
+                                    </div>
+                                )
+                            }) }
                         </div>
-                        {this.state.scoreType.map((scoreTypeName, i) => {
+                        {this.state.userbaseObjects.map((userObject, i) => {
                             return(
-                                <div className="relative" key={i}>
-                                    {
-                                    this.state.scoreType.length !== 1
-                                        &&
-                                    <button className="delete deleteScoreType" 
-                                    onClick={() => {alert(() => this.removeScoreCategory(i))}} id={i}>x</button>
-                                    }
-                                    <input placeholder="Category Name" type="text" className="cell scoreType" onChange={this.handleScoreTypeChange} value={scoreTypeName} id={i} />
-                                </div>
+                            <UserComponent 
+                                userbaseObjects={userObject}
+                                userbaseData={this.state.userbaseObjects}
+                                scoreTypeReferenceRow={i}
+                                keyValue={i}
+                                key={i}
+                                handleUserNameChange={this.handleUserNameChange}
+                                handleCellValueChange={this.handleCellValueChange}
+                                removeUserObject={this.removeUserObject}
+                            />
                             )
-                        }) }
+                        })}
                     </div>
-                    <button className="addScoreTypeIcon" onClick={this.addNewScoreCategory}>
-                        <FontAwesomeIcon icon={faPlus} />
-                    </button>
-                    {this.state.userbaseObjects.map((userObject, i) => {
-                        return(
-                        <UserComponent 
-                            userbaseObjects={userObject}
-                            userbaseData={this.state.userbaseObjects}
-                            scoreTypeReferenceRow={i}
-                            keyValue={i}
-                            key={i}
-                            handleUserNameChange={this.handleUserNameChange}
-                            handleCellValueChange={this.handleCellValueChange}
-                            removeUserObject={this.removeUserObject}
-                        />
-                        )
-                    })}
-                    <button className="addUserObjectIcon" onClick={this.addNewUserObject}>
-                        <FontAwesomeIcon icon={faUserPlus} />
-                    </button>
-                </div>
-                <div className="sumRow grid">
-                    <div className="cell"><p>Total</p></div>
-                    {this.state.userbaseObjects.map((userObject, i) => {
-                        return(
-                        <div className="cell" key={i}>
-                            <p>
-                                {this.state.userbaseObjects[i].userScore.reduce((a,b) => parseInt(a) + parseInt(b), 0)}
-                            </p>
-                        </div>
-                        )
-                    })}
+                    <div className="sumRow grid">
+                        <div className="cell"><p>Total</p></div>
+                        {this.state.userbaseObjects.map((userObject, i) => {
+                            return(
+                            <div className="cell" key={i}>
+                                <p>
+                                    {this.state.userbaseObjects[i].userScore.reduce((a,b) => parseInt(a) + parseInt(b), 0)}
+                                </p>
+                            </div>
+                            )
+                        })}
+                    </div>
                 </div>
                 <div className="scoreButtons">
                     <button onClick={() => { alert(() => this.resetComponent()) }}>Reset</button>
