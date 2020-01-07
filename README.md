@@ -3,8 +3,7 @@
 
 ![Project Screenshot](./screenshot/screen_bgtool.png)
 
-## Live Link
-http://tseki88.github.io/steveSekiProjectFive
+<a href="http://tseki88.github.io/steveSekiProjectFive" target="_blank">Live Link</a>
 
 
 ### Description
