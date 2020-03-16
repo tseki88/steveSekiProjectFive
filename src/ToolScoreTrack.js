@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import UserComponent from './UserComponent'
 import firebase from './firebase';
 import alert from './sweetAlert';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserPlus, faPlus } from '@fortawesome/free-solid-svg-icons'
+import {Button} from 'semantic-ui-react';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faUserPlus, faPlus } from '@fortawesome/free-solid-svg-icons'
 import LoadingSpinner from './LoadingSpinner';
 
 class ToolScoreTrack extends Component {
@@ -185,12 +186,8 @@ class ToolScoreTrack extends Component {
         return (
             <div className="scoreContainer relative">
                 <h3>Score Card</h3>
-                <button className="addScoreTypeIcon" aria-label="add new score category to scoreboard" onClick={this.addNewScoreCategory}>
-                    <FontAwesomeIcon icon={faPlus} />
-                </button>
-                <button className="addUserObjectIcon" aria-label="add new user to scoreboard" onClick={this.addNewUserObject}>
-                    <FontAwesomeIcon icon={faUserPlus} />
-                </button>
+                <Button className="addScoreTypeIcon" aria-label="add new score category to scoreboard" onClick={this.addNewScoreCategory} icon={"add"} />
+                <Button className="addUserObjectIcon" aria-label="add new user to scoreboard" onClick={this.addNewUserObject} icon={"add user"} />
                 <div className="gridsContainer">
 
                     

@@ -37,7 +37,6 @@ function useTimer(increment) {
     }
 
     useEffect(() => {
-        
         return () => {
             clearInterval(steps)
         }
@@ -45,7 +44,7 @@ function useTimer(increment) {
     
     running ? setTimeout(steps, interval) : clearInterval(steps);
     
-    return [time, running, toggleRunning, resetTimer, addTimerValue, useEffect]
+    return [time, running, toggleRunning, resetTimer, addTimerValue]
 }
 
 export default useTimer

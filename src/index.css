@@ -94,28 +94,31 @@ footer {
 
 /* Tool Container */
 .toolContainer {
-  width: 90%;
+  max-width: 500px;
+  /* width: 90%; */
   margin: 2px 4px;
   background-color: #f6f7f8;
-  padding: 30px 80px;
+  padding: 20px;
   border: 5px solid #ff3366;
   border-radius: 10px;
 }
 
 /* For Timers on Larger Screens */
 .halfContainer {
-  width: 45%;
+  /* width: 45%; */
+  height: fit-content;
   margin: 2px;
 }
 
 /* Button */
 
 button {
-  width: 200px;
-  margin: 3px;
-  padding: 5px 15px;
+  /* width: 48%; */
+  /* width: 200px; */
+  /* margin: 50px; */
+  /* padding: 10px; */
   border: none;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   font-size: 1.2rem;
   line-height: 2rem;
   background-color: #2ec4b6;
@@ -180,14 +183,15 @@ Add Score Type Button Icon */
 /* Button Container for Timer Tool */
 .buttonFlex {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
   justify-content: center;
 }
 
 .buttonFlex button {
   color: #f6f7f8;
   background-color: #20a4f3;
-  flex: 0 1 200px;
+  /* flex: 0 1 100px; */
 }
 
 button:hover,
@@ -268,7 +272,7 @@ button:disabled {
   background-color: #011627;
   color: #f6f7f8;
   padding: 10px 20px;
-  border-radius: 15px;
+  border-radius: 5px;
   margin: 20px;
   display: inline-block;
 }
@@ -283,13 +287,13 @@ button:disabled {
     padding: 20px;
   }
   
-  button {
+  /* button {
     width: 150px;
-  }
+  } */
 
-  .buttonFlex button {
+  /* .buttonFlex button {
     flex: 0 1 150px;
-  }
+  } */
 
   .scoreType,
   .userName {
@@ -300,10 +304,10 @@ button:disabled {
     right: 30%;
   }
 
-  .timeDisplay {
+  /* .timeDisplay {
     margin: 20px 0;
     font-size: 1.6rem;
-  }
+  } */
 }
 
 @media (max-width: 900px) {
@@ -372,9 +376,9 @@ button:disabled {
     font-size: 1.6rem;
   }
   
-  .timeDisplay {
+  /* .timeDisplay {
     width: 100px;
-  }
+  } */
 
   h3 {
     margin-bottom: 0;

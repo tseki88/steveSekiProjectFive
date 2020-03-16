@@ -1,13 +1,8 @@
 import firebase from 'firebase/app';
 import 'firebase/database';
 
-
-// ** Dear Potential Employer **
-// I am aware that it is not good practice to place the apiKey within public acess.
-// The Firebase Key is stored here solely for this project's purposes, as proof of concept on utilizing the firebase database integrated into this project.
-// The curriculum did not cover ways to 'hide/secure' this data, as it is not sensitive data.
 const firebaseConfig = {
-    apiKey: "AIzaSyDc29x3tdKHxQURl3f9mZhQgKFFpkW_R5s",
+    apiKey: process.env.REACT_APP_API_KEY,
     authDomain: "juno-react-project.firebaseapp.com",
     databaseURL: "https://juno-react-project.firebaseio.com",
     projectId: "juno-react-project",
