@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {alertTime} from './sweetAlert';
+import TimerDisplay from './components/TimerDisplay';
 
 class ToolTimer extends Component {
     constructor() {
@@ -22,19 +23,6 @@ class ToolTimer extends Component {
             time: 0,
             setTimer: true,
         })
-    }
-
-    format = () => {
-        let tenMillisecondsValue = this.state.time % 100;
-        let secondsValue = Math.floor(this.state.time / 100) % 60;
-        let minutesValue = Math.floor(this.state.time / 6000) % 60;
-        let hoursValue = Math.floor(this.state.time / 360000) % 60;
-
-        return (
-            <>
-                {hoursValue < 10 ? "0" + hoursValue : hoursValue} : {minutesValue < 10 ? "0" + minutesValue : minutesValue} : {secondsValue < 10 ? "0" + secondsValue : secondsValue} : {tenMillisecondsValue < 10 ? "0" + tenMillisecondsValue : tenMillisecondsValue}
-            </>
-        )
     }
 
     step = () => {
@@ -74,7 +62,16 @@ class ToolTimer extends Component {
             <div className="timerContainer">
                 <h3>Timer</h3>
                 <div>
-                    <p className="timeDisplay">{this.format()}</p>
+                    <p className="timeDisplay">
+                        <TimerDisplay time={this.state.time} />    
+                    </p>
+                    {this.state.running === false
+                        ?
+                        <button disabled={this.state.time === 0 && true} onClick={this.toggleTimer}>Start</button>
+                        :
+                        <button onClick={this.toggleTimer}>Pause</button>
+                    }
+                    <button onClick={this.resetTimer} disabled={this.state.running}>Reset</button>
                     <div className="buttonFlex">
                         <button disabled={this.state.running} onClick={() => this.addTimerValue(1000)}>+ 10 sec.</button>
                         <button disabled={this.state.running} onClick={() => this.addTimerValue(3000)}>+ 30 sec.</button>
@@ -83,13 +80,6 @@ class ToolTimer extends Component {
                         <button disabled={this.state.running} onClick={() => this.addTimerValue(180000)}>+ 30 min.</button>
                         <button disabled={this.state.running} onClick={() => this.addTimerValue(360000)}>+ 1 hr</button>
                     </div>
-                    {this.state.running === false
-                        ?
-                        <button disabled={this.state.time === 0 && true} onClick={this.toggleTimer}>Start</button>
-                        :
-                        <button onClick={this.toggleTimer}>Pause</button>
-                    }
-                    <button onClick={this.resetTimer} disabled={this.state.running}>Reset</button>
                 </div>
             </div>
         );

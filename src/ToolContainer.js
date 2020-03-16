@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import SessionHeader from './SessionHeader';
 import ToolScoreTrack from './ToolScoreTrack';
-import ToolStopWatch from './ToolStopWatch';
-import ToolTimer from './ToolTimer';
+import StopWatchTwo from './components/StopWatchTwo';
+import TimerTwo from './components/TimerTwo';
 
 class ToolContainer extends Component {
     render() {
@@ -13,10 +13,10 @@ class ToolContainer extends Component {
                     <ToolScoreTrack />
                 </div>
                 <div className="toolContainer halfContainer">
-                    <ToolStopWatch />
+                    <StopWatchTwo />
                 </div>
                 <div className="toolContainer halfContainer">
-                    <ToolTimer />
+                    <TimerTwo />
                 </div>
             </div>
         );
