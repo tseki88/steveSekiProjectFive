@@ -1,13 +1,14 @@
 import React from 'react'
 import TimerDisplay from './TimerDisplay';
 import useTimer from '../hooks/useTimer';
-import { Button } from 'semantic-ui-react'
+import { Header, Button } from 'semantic-ui-react'
 
 function TimerTwo() {
     const [time, running, toggleRunning, resetTimer, addTimerValue] = useTimer(false);
 
     return (
         <div>
+            <Header size="medium" icon="hourglass" content="Timer" dividing />
             <TimerDisplay time={time} />
             <div className="buttonFlex">
                 <Button.Group >

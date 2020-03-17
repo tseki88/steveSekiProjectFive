@@ -5,7 +5,7 @@ import alert from './sweetAlert';
 import {Button} from 'semantic-ui-react';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faUserPlus, faPlus } from '@fortawesome/free-solid-svg-icons'
-import LoadingSpinner from './LoadingSpinner';
+// import LoadingSpinner from './legacy/LoadingSpinner';
 
 class ToolScoreTrack extends Component {
     constructor() {
@@ -175,14 +175,14 @@ class ToolScoreTrack extends Component {
     };
 
     render() {
-        if (this.state.loading) {
-            return (
-                <>
-                    <LoadingSpinner />
-                    <h3>Loading..</h3>
-                </>
-            )
-        }
+        // if (this.state.loading) {
+        //     return (
+        //         <>
+        //             <LoadingSpinner />
+        //             <h3>Loading..</h3>
+        //         </>
+        //     )
+        // }
         return (
             <div className="scoreContainer relative">
                 <h3>Score Card</h3>

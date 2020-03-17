@@ -1,13 +1,14 @@
 import React from 'react'
 import TimerDisplay from './TimerDisplay';
 import useTimer from '../hooks/useTimer'
-import { Button } from 'semantic-ui-react'
+import { Header, Button } from 'semantic-ui-react'
 
 function StopWatchTwo() {
     const [time, running, toggleRunning, resetTimer] = useTimer(true);
 
     return (
         <div>
+            <Header size="medium" icon="time" content="Stop Watch" dividing />
             <TimerDisplay time={time} />
             <Button.Group >
                 <Button icon={running ? "pause" : "play"} content={running ? "Pause" : "Start"} onClick={toggleRunning} />

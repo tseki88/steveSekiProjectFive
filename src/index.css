@@ -61,7 +61,7 @@ f6f7f8
 h1,
 footer {
   color: #f6f7f8;
-  padding: 20px;
+  padding: 10px;
   margin: 0;
 }
 
@@ -76,7 +76,7 @@ footer {
 
 /* Session Name */
 .sessionName {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   margin: 0 20px 20px;
   text-align: center; 
   border: none;
@@ -86,82 +86,47 @@ footer {
   position: absolute;
   content: "session name: ";
   color: #5d737e;
-  font-size: 1rem;
-  top: -20px;
-  left: 50%;
-  transform: translateX(-50%);
+  font-size: 0.8rem;
+  /* top: 50%; */
+  /* left: 20px; */
+  left: 0;
+  /* transform: translateX(-50%); */
+}
+
+td {
+  min-width: 100px;
 }
 
 /* Tool Container */
 .toolContainer {
-  max-width: 500px;
-  /* width: 90%; */
+  /* max-width: 500px; */
+  width: auto;
+  min-height: 200px;
   margin: 2px 4px;
-  background-color: #f6f7f8;
-  padding: 20px;
-  border: 5px solid #ff3366;
-  border-radius: 10px;
+  background-color: whitesmoke;
+  padding: 10px;
+  border-radius: 6px;
 }
 
 /* For Timers on Larger Screens */
 .halfContainer {
-  /* width: 45%; */
+  width: 300px;
   height: fit-content;
   margin: 2px;
 }
 
-/* Button */
-
-button {
-  /* width: 48%; */
-  /* width: 200px; */
-  /* margin: 50px; */
-  /* padding: 10px; */
-  border: none;
-  /* border-radius: 10px; */
-  font-size: 1.2rem;
-  line-height: 2rem;
-  background-color: #2ec4b6;
-  color: #011627;
+.mini {
+  font-size: 0.9rem;
+  line-height: initial;
 }
 
-.scoreButtons {
-  width: 100%;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  bottom: -70px;
-}
 
 /* Add User Object Button Icon
 Add Score Type Button Icon */
-.addUserObjectIcon,
-.addScoreTypeIcon,
-.delete {
-  position: absolute;
-}
-
-.addUserObjectIcon,
-.addScoreTypeIcon {
-  width: 50px;
-  background: none;
-  color: #011627;
-  font-size: 1.2rem;
-  cursor: pointer;
-}
-
-.addUserObjectIcon {
-  top: 10px;
-  right: -60px;
-}
-
-.addScoreTypeIcon {
-  bottom: 5px;
-  left: -60px;
-}
 
 /* Delete Butotns */
 .delete {
+  position: absolute;
   color: #011627;
   background: none;
   border: none;
@@ -180,158 +145,71 @@ Add Score Type Button Icon */
   right: -5px;
 }
 
-/* Button Container for Timer Tool */
-.buttonFlex {
-  display: flex;
-  /* flex-wrap: wrap; */
-  flex-direction: column;
-  justify-content: center;
-}
-
-.buttonFlex button {
-  color: #f6f7f8;
-  background-color: #20a4f3;
-  /* flex: 0 1 100px; */
-}
-
-button:hover,
-button:focus {
-  transform: scale(1.03);
-  color: #011627;
-}
-
-button:focus {
-  color: #ff3366;
-  font-size: 1.4rem;
-}
-
-button:disabled {
-  background-color: grey;
-}
-
-/* Icon related */
-.editIcon {
-  position: absolute;
-  font-size: 1.2rem;
-  color: lightgray;
-  top: 50%;
-  right: 40%;
-  transform: translateY(-50%);
-}
-
-.checkIcon {
-  color: green;
-}
-
 /* Scoreboard Container / Layout */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
 }
 
-.scoreContainer {
-  background-color: #2ec4b6;
-  border: 5px solid #011627;
-  border-radius: 10px;
-  margin-bottom: 50px;
-}
-
 .cell {
+  /* min-width: fit-content; */
   width: 100%;
   height: 60px;
   text-align: center;
   border: 1px solid #011627;
   background-color: #f6f7f8;
-  font-size: 1.3rem;
-  border-radius: 0;
+  /* font-size: 1.3rem; */
+  /* border-radius: 0; */
 }
 
 .userName,
 .scoreType,
 .emptyCell,
 .sumRow .cell {
-  font-weight: bold;
-  font-size: 1.2rem;
+  /* font-weight: bold; */
+  /* font-size: 1.2rem; */
   background-color: #e0e1e2;
 }
 
 .sumRow .cell {
-  border-top: 5px solid #5d737e;
+  /* border-top: 5px solid #5d737e; */
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.5rem;
+  /* font-size: 1.5rem; */
 }
 
 /* Timer/Countdown Tool Timer Display */
 .timeDisplay {
-  font-size: 1.8rem;
-  font-weight: bold;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 20px auto;
+  padding: 5px 7px;
+  border-radius: 5px;
   font-family: 'Inconsolata', monospace;
-  letter-spacing: 5px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  letter-spacing: 4px;
+  line-height: inherit;
   background-color: #011627;
   color: #f6f7f8;
-  padding: 10px 20px;
-  border-radius: 5px;
-  margin: 20px;
-  display: inline-block;
 }
 
 /* Media Queries */
-@media (max-width: 1300px){
-  .toolContainer {
-    padding: 20px 50px;
-  }
+/* @media (max-width: 1300px){
 
-  .halfContainer {
-    padding: 20px;
-  }
+} */
+
+/* @media (max-width: 900px) {
   
-  /* button {
-    width: 150px;
-  } */
-
-  /* .buttonFlex button {
-    flex: 0 1 150px;
-  } */
-
-  .scoreType,
-  .userName {
-    font-size: 1rem;
-  }
-
-  .editIcon {
-    right: 30%;
-  }
-
-  /* .timeDisplay {
-    margin: 20px 0;
-    font-size: 1.6rem;
-  } */
-}
-
-@media (max-width: 900px) {
-  .halfContainer {
-    width: 90%;
-  }
-
-  .buttonFlex button {
-    flex: 0 1 200px;
-  }
-}
+} */
 
 @media (max-width: 660px) {
   .toolContainer {
-    padding: 20px 25px;
-  }
-  
-  .editIcon {
-    right: 20%;
-  }
-  
-  .addUserObjectIcon {
-    top: 10px;
-    right: -45px;
+    margin: 2px 5px;
+    width: 100%;
   }
   
   .grid {
@@ -392,4 +270,12 @@ button:disabled {
   .editIcon {
     right: 0;
   }
+}
+
+.ui.buttons {
+  width: 100%;
+}
+
+.ui.buttons .button {
+  flex: 1 1 auto;
 }
