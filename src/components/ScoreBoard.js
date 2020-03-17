@@ -13,7 +13,7 @@ function ScoreBoard() {
             scores: [0]
         }
     ])
-    const [loading, setLoading] = useState(false)
+    // const [loading, setLoading] = useState(false)
     const [addPlayerModal, setAddPlayerModal] = useState(false)
 
     const playerDbRef = firebase.database().ref("players");
@@ -122,8 +122,6 @@ function ScoreBoard() {
             setScoreTypes(newState)
         })
     },[])
-
-    // let totalsArray = [];
 
     const renderTotals = (
         players.map((e,i) => {

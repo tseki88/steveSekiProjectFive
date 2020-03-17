@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import StopWatchTwo from './components/StopWatchTwo';
 import TimerTwo from './components/TimerTwo';
-import ScoreBoard from './components/ScoreBoard';
+import Dice from './components/Dice';
+// import ScoreBoard from './components/ScoreBoard';
 
 class ToolContainer extends Component {
     render() {
@@ -14,7 +15,10 @@ class ToolContainer extends Component {
                     <TimerTwo />
                 </div>
                 <div className="toolContainer">
-                    <ScoreBoard />
+                    {/* <ScoreBoard /> */}
+                </div>
+                <div className="toolContainer halfContainer">
+                    <Dice />
                 </div>
             </div>
         );
