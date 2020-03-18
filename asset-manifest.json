@@ -1,21 +1,26 @@
 {
   "files": {
-    "main.css": "/steveSekiProjectFive/static/css/main.9f53c31d.chunk.css",
-    "main.js": "/steveSekiProjectFive/static/js/main.d1e8a932.chunk.js",
-    "main.js.map": "/steveSekiProjectFive/static/js/main.d1e8a932.chunk.js.map",
-    "runtime-main.js": "/steveSekiProjectFive/static/js/runtime-main.48f03745.js",
-    "runtime-main.js.map": "/steveSekiProjectFive/static/js/runtime-main.48f03745.js.map",
-    "static/js/2.2efd9b98.chunk.js": "/steveSekiProjectFive/static/js/2.2efd9b98.chunk.js",
-    "static/js/2.2efd9b98.chunk.js.map": "/steveSekiProjectFive/static/js/2.2efd9b98.chunk.js.map",
+    "main.css": "/steveSekiProjectFive/static/css/main.2a53e7f1.chunk.css",
+    "main.js": "/steveSekiProjectFive/static/js/main.eb6e2c59.chunk.js",
+    "main.js.map": "/steveSekiProjectFive/static/js/main.eb6e2c59.chunk.js.map",
+    "runtime-main.js": "/steveSekiProjectFive/static/js/runtime-main.92f756c5.js",
+    "runtime-main.js.map": "/steveSekiProjectFive/static/js/runtime-main.92f756c5.js.map",
+    "static/css/2.5703e28c.chunk.css": "/steveSekiProjectFive/static/css/2.5703e28c.chunk.css",
+    "static/js/2.cdd3f88a.chunk.js": "/steveSekiProjectFive/static/js/2.cdd3f88a.chunk.js",
+    "static/js/2.cdd3f88a.chunk.js.map": "/steveSekiProjectFive/static/js/2.cdd3f88a.chunk.js.map",
     "index.html": "/steveSekiProjectFive/index.html",
-    "precache-manifest.89f8c3d396a9c18a564e795f99632ead.js": "/steveSekiProjectFive/precache-manifest.89f8c3d396a9c18a564e795f99632ead.js",
+    "precache-manifest.3acee7d68065c24274df37e5d2feceef.js": "/steveSekiProjectFive/precache-manifest.3acee7d68065c24274df37e5d2feceef.js",
     "service-worker.js": "/steveSekiProjectFive/service-worker.js",
-    "static/css/main.9f53c31d.chunk.css.map": "/steveSekiProjectFive/static/css/main.9f53c31d.chunk.css.map"
+    "static/css/2.5703e28c.chunk.css.map": "/steveSekiProjectFive/static/css/2.5703e28c.chunk.css.map",
+    "static/css/main.2a53e7f1.chunk.css.map": "/steveSekiProjectFive/static/css/main.2a53e7f1.chunk.css.map",
+    "static/media/semantic.min.css": "/steveSekiProjectFive/static/media/outline-icons.ef60a4f6.woff",
+    "static/media/dicefont.css": "/steveSekiProjectFive/static/media/dicefont.eb59a4b3.eot"
   },
   "entrypoints": [
-    "static/js/runtime-main.48f03745.js",
-    "static/js/2.2efd9b98.chunk.js",
-    "static/css/main.9f53c31d.chunk.css",
-    "static/js/main.d1e8a932.chunk.js"
+    "static/js/runtime-main.92f756c5.js",
+    "static/css/2.5703e28c.chunk.css",
+    "static/js/2.cdd3f88a.chunk.js",
+    "static/css/main.2a53e7f1.chunk.css",
+    "static/js/main.eb6e2c59.chunk.js"
   ]
 }
