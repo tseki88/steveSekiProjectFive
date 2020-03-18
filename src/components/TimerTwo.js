@@ -7,7 +7,7 @@ function TimerTwo() {
     const [time, running, toggleRunning, resetTimer, addTimerValue] = useTimer(false);
 
     return (
-        <div>
+        <>
             <Header size="medium" icon="hourglass" content="Timer" dividing />
             <TimerDisplay time={time} />
             <div className="buttonFlex">
@@ -27,7 +27,7 @@ function TimerTwo() {
                     <Button compact content="+ 5 min." disabled={running} onClick={() => addTimerValue(30000)} />
                 </Button.Group>
             </div>
-        </div>
+        </>
     )
 }
 

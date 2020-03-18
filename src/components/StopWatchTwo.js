@@ -7,14 +7,14 @@ function StopWatchTwo() {
     const [time, running, toggleRunning, resetTimer] = useTimer(true);
 
     return (
-        <div>
+        <>
             <Header size="medium" icon="time" content="Stop Watch" dividing />
             <TimerDisplay time={time} />
             <Button.Group >
                 <Button icon={running ? "pause" : "play"} content={running ? "Pause" : "Start"} onClick={toggleRunning} />
                 <Button icon='undo' content='Reset' onClick={resetTimer} disabled={running} />
             </Button.Group>
-        </div>
+        </>
     )
 }
 

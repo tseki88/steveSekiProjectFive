@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import ToolContainer from './ToolContainer';
+import React from 'react';
+// import {Button} from 'semantic-ui-react'
+import Container from './Container';
 
 
-class Main extends Component {
-    render() {
-        return (
-            <div>
-                <ToolContainer />
-            </div>
-        );
-    };
+function Main() {
+
+    return (
+        <div>
+            <Container />
+        </div>
+    );
 };
 
 export default Main;

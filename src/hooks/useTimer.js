@@ -1,7 +1,6 @@
 import {useState, useEffect} from 'react'
 
 function useTimer(increment) {
-    const interval = 10;
     const [time, setTime] = useState(0);
     const [running, setRunning] = useState(false);
 
@@ -42,7 +41,7 @@ function useTimer(increment) {
         }
     })
     
-    running ? setTimeout(steps, interval) : clearInterval(steps);
+    running ? setTimeout(steps, 10) : clearInterval(steps);
     
     return [time, running, toggleRunning, resetTimer, addTimerValue]
 }
