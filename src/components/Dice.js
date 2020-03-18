@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { Header, Button, Popup, Transition } from 'semantic-ui-react';
+import { Header, Button, Icon, Popup, Transition } from 'semantic-ui-react';
 
 // Custom Dice Faces?
 
-function Dice() {
+function Dice(props) {
     const [dice, setDice] = useState([[6,6]])
     const [rolling, setRolling] = useState(false)
     const [sum, setSum] = useState("Calc")
@@ -112,16 +112,16 @@ function Dice() {
     return (
         <>
             <Header size="medium" icon="cube" content="Dice" dividing />
+            <Icon name="delete" onClick={props.delete} />
             <div className="diceContainer">
                 {dice.map((e, i) => {
                     return (
                         <Transition
-                            key={`${i}-${e[1]}`}
                             animation="tada"
                             duration="500"
                             visible={!rolling}
                         >
-                            <i className={`dice df-d${e[0]}-${e[1]}`}></i>
+                            <i className={`dice df-d${e[0]}-${e[1]}`} key={`${i}-${e[1]}`}></i>
                         </Transition>
                     )
                 })}
