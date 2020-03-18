@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import firebase from '../firebase';
 import { Header, Button, Table, Form, Popup, Input } from 'semantic-ui-react';
-// import UserComponent from '../UserComponent'
 
 // Tally / Multiply (point value e.g. for every Egg you get 5 points..)
 
@@ -42,8 +41,7 @@ function ScoreBoard() {
                     {e.scores.map((e, i) => {
                         return (
                         <Cell key={i} id={i}>
-                            {e}
-                            {/* <Input value={e} type="number" /> */}
+                            <Input value={e} type="number" />
                         </Cell>
                         )
                     })}

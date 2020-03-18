@@ -36,14 +36,14 @@ function useTimer(increment) {
             return prevTime + value
         })
     }
-
+    
     useEffect(() => {
         return () => {
-            clearInterval(steps)
+            clearTimeout(steps)
         }
     })
     
-    running ? setTimeout(steps, 10) : clearInterval(steps);
+    running ? setTimeout(steps, 10) : clearTimeout(steps);
     
     return {time, running, toggleRunning, resetTimer, addTimerValue, alert, setAlert}
 }
