@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TimerDisplay from './components/TimerDisplay';
 
 class ToolStopWatch extends Component {
     constructor() {
@@ -21,19 +22,6 @@ class ToolStopWatch extends Component {
         })
     }
 
-    format = () => {
-        let tenMillisecondsValue = this.state.time % 100;
-        let secondsValue = Math.floor(this.state.time / 100) % 60;
-        let minutesValue = Math.floor(this.state.time / 6000) % 60;
-        let hoursValue = Math.floor(this.state.time / 360000) % 60;
-
-        return (
-            <>
-                {hoursValue < 10 ? "0" + hoursValue : hoursValue} : {minutesValue < 10 ? "0" + minutesValue : minutesValue} : {secondsValue < 10 ? "0" + secondsValue : secondsValue} : {tenMillisecondsValue < 10 ? "0" + tenMillisecondsValue : tenMillisecondsValue}
-            </>
-        )
-    }
-
     step = () => {
         this.setState({
             time: this.state.time + 1
@@ -48,7 +36,7 @@ class ToolStopWatch extends Component {
             <div className="timerContainer">
                 <h3>Stop Watch</h3>
                 <div>
-                    <p className="timeDisplay">{this.format()}</p>
+                    <p className="timeDisplay"><TimerDisplay time={this.state.time} /></p>
                 </div>
                 {this.state.running === false
                     ?
