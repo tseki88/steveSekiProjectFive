@@ -22,7 +22,8 @@ An all in one app with multiple components that can be added based on the board 
 - [ ] Lock to prevent deleting components
 - [ ] Set up data structure to handle multiple scoreboard component data
 - [ ] User Authentication / Guest Access
-- [ ] Mute Sounds (when implemented)
+- [x] Mute Sounds (when implemented)
+    - [ ] Each Tool to have unique muter?
 - [ ] Dark Mode
 - [ ] Accordion for each component (shrinks) it
 - [ ] Mobile UI/UX Optimization (size/render/accessing each component)
@@ -42,7 +43,7 @@ An all in one app with multiple components that can be added based on the board 
 
 #### Coin Flip
 - [ ] find replacement Head/Tails images
-- [ ] coin flip sound
+- [x] coin flip sound
 
 #### Stop Watch
 - [ ] Maybe: a button to log the current time
