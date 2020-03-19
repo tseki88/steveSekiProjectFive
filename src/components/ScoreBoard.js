@@ -1,10 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import firebase from '../firebase';
-import { Header, Button, Table, Form, Popup, Input } from 'semantic-ui-react';
+import { Header, Button, Table, Icon, Popup, Input, Loader, Dimmer, Segment, Placeholder } from 'semantic-ui-react';
 
-// Tally / Multiply (point value e.g. for every Egg you get 5 points..)
-
-function ScoreBoard() {
+function ScoreBoard(props) {
     const {Row, HeaderCell, Body, Cell, Footer} = Table
 
     const [players, setPlayers] = useState([""]);
@@ -14,46 +12,26 @@ function ScoreBoard() {
             scores: [0]
         }
     ])
-    // const [loading, setLoading] = useState(false)
-    const [popup, setPopup] = useState(false)
+    const [confirmDelete, setConfirmDelete] = useState(null)
+    const [loading, setLoading] = useState(false)
+    const [edit, setEdit] = useState(false)
     const [clearPopup, setClearPopup] = useState(false)
+    const [total, setTotal] = useState(false)
+
+    console.log("rerender")
 
     const playerDbRef = firebase.database().ref("players");
     const scoreTypeDbRef = firebase.database().ref("scoreTypes");
 
-    console.log("rerender")
+    const changeHandler = (event, catInd, scoreIndex) => {
+        let updatedScore = [...scoreTypes]
+        let newValue = event.target.value
+        updatedScore[catInd]["scores"][scoreIndex] = newValue;
+        scoreTypeDbRef.set(updatedScore);
+    }
 
-    const renderPlayers = (
-        players.map((e, i) => {
-            return (
-                <HeaderCell key={i}>{e}</HeaderCell>
-            )
-        })
-    )
-
-    const renderScores = (
-        scoreTypes.map((e,i) => {
-            return(
-                e 
-                ?
-                <Row key={i} id={i}>
-                    <HeaderCell>{e.category}</HeaderCell>
-                    {e.scores.map((e, i) => {
-                        return (
-                        <Cell key={i} id={i}>
-                            <Input value={e} type="number" />
-                        </Cell>
-                        )
-                    })}
-                </Row>
-                :
-                null
-            )
-        })
-    )
-
-    const addPlayer = (name) => {
-        let newPlayerState = [...players, name]
+    const addPlayer = () => {
+        let newPlayerState = [...players, ""]
         playerDbRef.set(newPlayerState)
 
         let newScoreState = [...scoreTypes]
@@ -63,25 +41,33 @@ function ScoreBoard() {
         scoreTypeDbRef.set(newScoreState)
     }
 
-    const submitHandler = (e) => {
-        e.preventDefault();
-        addPlayer(e.target.name.value);
-        e.target.name.value = "";
-        setPopup(false)
+    const confirmRemove = (type, i) => {
+        let target = {}
+        target[`${type}`] = i
+        setConfirmDelete(target)
     }
 
-    // const removePlayer = () => {
+    const removePlayer = (index) => {
+        let newPlayerState = [...players]
+        newPlayerState.splice(index, 1)
+        playerDbRef.set(newPlayerState)
 
-    // }
+        let newScoreState = [...scoreTypes]
+        newScoreState.forEach((e) => {
+            e["scores"].splice(index,1)
+        })
+        scoreTypeDbRef.set(newScoreState)
+        setConfirmDelete(null)
+    }
 
-    const addScore = (scoreName) => {
+    const addScore = () => {
         let newScores = [];
         for (let i = 0; i < players.length; i++) {
             newScores.push(0)
         }
 
         let newScoreObject = {
-            category: scoreName,
+            category: "",
             scores: newScores
         }
         let newScoreState = [...scoreTypes, newScoreObject]
@@ -89,9 +75,21 @@ function ScoreBoard() {
         scoreTypeDbRef.set(newScoreState)
     }
 
+    const removeScoreCategory = (index) => {
+        let newScores = [...scoreTypes];
+        newScores.splice(index,1);
+        scoreTypeDbRef.set(newScores)
+        setConfirmDelete(null)
+    }
+
+    const editToggle = () => {
+        setConfirmDelete(null)
+        setEdit(!edit)
+    }
+
     const resetBoard = () => {
         const resetPlayers = [
-            "Player 1"
+            ""
         ]
         
         const resetScores = [
@@ -106,14 +104,168 @@ function ScoreBoard() {
         setClearPopup(false)
     }
 
+    const nameHandler = (event, index) => {
+        let updatedPlayers = [...players]
+        updatedPlayers[index] = event.target.value;
+        playerDbRef.set(updatedPlayers)
+    }
+
+    const scoreTypeHandler = (event, index) => {
+        let updatedScore = [...scoreTypes]
+        updatedScore[index]["category"] = event.target.value;
+        scoreTypeDbRef.set(updatedScore)
+    }
+
+    const renderPlayers = (
+        players.map((e, i) => {
+            return (
+                <HeaderCell key={i}>
+                    {
+                    edit
+                    ?
+                        (!confirmDelete || confirmDelete["player"] !== i)
+                        ?
+                        <Input 
+                            type="text"
+                            value={e}
+                            fluid
+                            placeholder="Name"
+                            label={{
+                                icon:"delete", 
+                                onClick:() => confirmRemove("player",i)
+                            }}
+                            labelPosition="right corner"    
+                        />
+                        :
+                        <Input 
+                            type="text"
+                            value={e}
+                            fluid
+                            placeholder="Name"
+                            action={{
+                                icon:"trash alternate",
+                                color:"red", 
+                                onClick: () => removePlayer(i)
+                            }}
+                        />
+                    :
+                    <Input 
+                        type="text"
+                        value={e}
+                        fluid
+                        placeholder="Name"
+                        onChange={(event) => {
+                            nameHandler(event, i)
+                        }}
+                    />
+                    }   
+                </HeaderCell>
+            )
+        })
+    )
+
+    const renderScores = (
+        scoreTypes.map((catObj,catInd) => {
+            return(
+                catObj 
+                ?
+                <Row key={catInd} id={catInd}>
+                    <HeaderCell>
+                    {
+                    edit
+                    ?
+                        (!confirmDelete || confirmDelete["score"] !== catInd)
+                        ?
+                        <Input 
+                            type="text"
+                            value={catObj.category}
+                            placeholder="Category"
+                            fluid
+                            label={{
+                                icon:"delete", 
+                                onClick:() => confirmRemove("score",catInd)
+                            }}
+                            labelPosition="right corner"    
+                        />
+                        :
+                        <Input 
+                            type="text"
+                            value={catObj.category}
+                            placeholder="Category"
+                            fluid
+                            action={{
+                                icon:"trash alternate",
+                                color:"red", 
+                                onClick: () => removeScoreCategory(catInd)
+                            }}
+                        />
+                    :
+                        <Input 
+                            type="text"
+                            value={catObj.category}
+                            placeholder="Category"
+                            fluid
+                            onChange={(event) => {
+                                scoreTypeHandler(event, catInd)
+                            }}    
+                        />
+                    }   
+                    </HeaderCell>
+                    {catObj.scores.map((e, i) => {
+                        return (
+                        <Cell key={i} id={i}>
+                            <Input 
+                                type="number"
+                                value={e} 
+                                fluid
+                                onChange={(event) => {
+                                    changeHandler(event,catInd,i)}}
+                                />
+                        </Cell>
+                        )
+                    })}
+                </Row>
+                :
+                null
+            )
+        })
+    )
+
+    const renderTotals = (
+        players.map((e,i) => {
+            let totalValue = 0;
+            scoreTypes.forEach((e) => {
+                let value = parseInt(e.scores[i])
+                totalValue += (isNaN(value) ?  0 : value);
+            })
+            return <HeaderCell key={i} >{total ? totalValue : "-"}</HeaderCell>
+        })
+    )
+
+
+    // ***** Figure out Firebase event handler unmounting...
+
     useEffect(() => {
+        setLoading(true)
+        const playerDbRef = firebase.database().ref("players");
+
         playerDbRef.on("value", (response) => {
             const newState = [];
             response.forEach((e) => {
                 newState.push(e.val())
             })
             setPlayers(newState)
+            setLoading(false)
         })
+
+        return(() => {
+            // playerDbRef()
+        })
+    },[])
+
+    useEffect(() => {
+        setLoading(true)
+        const scoreTypeDbRef = firebase.database().ref("scoreTypes");
 
         scoreTypeDbRef.on("value", (response) => {
             const newState = [];
@@ -121,23 +273,29 @@ function ScoreBoard() {
                 newState.push(e.val())
             })
             setScoreTypes(newState)
+            setLoading(false)
+        })
+
+        return(() => {
+            // scoreTypeDbRef()
         })
     },[])
-
-    const renderTotals = (
-        players.map((e,i) => {
-            let total = 0;
-            scoreTypes.forEach((e) => {
-                total += e.scores[i]
-            })
-            return <HeaderCell key={i}>{total}</HeaderCell>
-        })
-    )
 
     return (
         <div>
             <Header size="medium" icon="table" content="Score Card" dividing />
-            <Table celled>
+            <Icon name="delete" onClick={props.delete} />
+            {
+            loading 
+            ? 
+            <Segment>
+            <Dimmer active>
+                <Loader content="Loading" /> 
+            </Dimmer>
+            <Placeholder style={{ height: 200, width: 300 }} />
+            </Segment>
+            : 
+            <Table definition selectable singleLine >
                 <Table.Header>
                     <Row>
                         <HeaderCell></HeaderCell>
@@ -149,37 +307,26 @@ function ScoreBoard() {
                 </Body>
                 <Footer>
                     <Row>
-                        <HeaderCell>Total</HeaderCell>
+                        <Cell>
+                            <Button 
+                                icon={total ? "hide" : "calculator"} 
+                                content="Total"
+                                onClick={() => setTotal(!total)}
+                                fluid 
+                            />
+                        </Cell>
                         {renderTotals}
                     </Row>
                 </Footer>
             </Table>
-
-            <Popup
+            }
+            <Button.Group>
+                <Button icon={edit ? "unlock" : "lock"} color={edit ? null : "grey"} content={edit ? "Lock Table" : "Edit Table"} onClick={editToggle} />
+                <Button icon="add user" content="Player" onClick={addPlayer} disabled={!edit} />
+                <Button icon="add" content="Row" onClick={addScore} disabled={!edit} />
+                <Popup
                     trigger={
-                        <Button icon="add user" />
-                    }
-                    content={
-                        <Form onSubmit={(e) => submitHandler(e)} >
-                            <Form.Input
-                                type="text" 
-                                name="name"
-                                placeholder="Player Name"
-                                required
-                            />
-                            <Form.Button content="Add" />
-                        </Form>
-                    }
-                    on='click'
-                    onOpen={() => setPopup(true)}
-                    onClose={() => setPopup(false)}
-                    position='top center'
-                    open={popup}
-                />
-            <Button icon="add" content="Row" onClick={() => addScore("New Category")} />
-            <Popup
-                    trigger={
-                        <Button icon="undo" content="Reset"/>
+                        <Button icon="undo" content="Reset" disabled={!edit} />
                     }
                     content={<Button color='red' content='Clear?' onClick={resetBoard}  />}
                     on='click'
@@ -188,6 +335,7 @@ function ScoreBoard() {
                     position='top center'
                     open={clearPopup}
                 />
+            </Button.Group>
         </div>
     )
 }

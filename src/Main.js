@@ -1,6 +1,6 @@
 import React from 'react';
 // import {Button} from 'semantic-ui-react'
-import Container from './Container';
+import Container from './components/Container';
 
 
 function Main() {

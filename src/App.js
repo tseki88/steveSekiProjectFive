@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import {Header} from 'semantic-ui-react';
-// import Header from './Header';
 import Main from './Main';
-import Footer from './Footer';
+import Footer from './components/Footer';
 
 class App extends Component {
   render() {

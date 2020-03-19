@@ -3,7 +3,6 @@ import TimerDisplay from './TimerDisplay';
 import useTimer from '../hooks/useTimer';
 import { Header, Button, Icon, Popup } from 'semantic-ui-react'
 
-// option to enable sound trigger
 function TimerTwo(props) {
     const {time, running, toggleRunning, resetTimer, addTimerValue, alert, setAlert} = useTimer(false);
 
@@ -19,7 +18,7 @@ function TimerTwo(props) {
             {/* <Header size="medium" icon="hourglass" content="Timer" dividing /> */}
             <Icon name="delete" onClick={props.delete} />
             <TimerDisplay time={time} />
-            <div className="buttonFlex">
+            <div className="buttonContainer">
                 <Button.Group >
                     <Button 
                         icon={running ? "pause" : "play"} 

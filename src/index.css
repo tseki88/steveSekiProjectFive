@@ -53,7 +53,15 @@ footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  margin: 10px auto;
+  /* height: 20px; */
+  padding: 10px;
+  margin: 10px auto 0;
+  background-color: #1b1c1d;
+  box-shadow: 0 0 5px black;
+}
+
+footer a {
+  color: white;
 }
 
 header {
@@ -65,11 +73,16 @@ header {
   justify-content: center;
   align-items: center;
   box-shadow: 0 0 5px black;
-  border-bottom: 1px solid #444;
+  /* border-bottom: 1px solid #444; */
+}
+
+.componentAppender {
+  padding: 20px;
 }
 
 .buttonContainer {
-  padding: 20px;
+  width: 280px;
+  margin: 0 auto;
 }
 
 .relative {
@@ -83,8 +96,45 @@ header {
 }
 
 td {
-  min-width: 100px;
+  min-width: 80px;
+  padding: 0 !important;
 }
+
+input[type="number"],
+tfoot th {
+  -webkit-appearance: none !important;
+  -moz-appearance: textfield !important;
+  padding: 0 !important;
+  /* border: none !important; */
+  text-align: center !important;
+  height: 3rem;
+  font-size: 1.2rem;
+  /* margin: inherit; */
+  background-color: transparent !important;
+}
+
+tr {
+  text-align: center;
+}
+
+th input,
+.ui[class*="corner labeled"]:not([class*="left corner labeled"]).labeled.input > input {
+  text-align: center !important;
+  padding: 9px !important;
+  /* font-size: inherit !important;
+  font-family: inherit !important; */
+  font: inherit !important;
+  font-weight: 800 !important;
+  background-color: inherit !important;
+  border-radius: none !important;
+}
+
+tr th {
+  text-align: left;
+  padding: 0 !important
+}
+
+
 
 /* Tool Container */
 .toolContainer {
@@ -95,20 +145,18 @@ td {
   /* justify-content: space-between; */
   /* width: auto; */
   min-height: 200px;
-  margin: 2px 4px;
+  /* margin: 2px 4px; */
   background-color: #ffffff;
   box-shadow: 0 1px 2px #ccc;
   padding: 10px;
   border-radius: 6px;
+  margin: 2px;
+  min-width: 300px;
+  max-width: 600px;
+  height: fit-content;
 }
 
 /* For Timers on Larger Screens */
-.halfContainer {
-  width: 300px;
-  height: fit-content;
-  /* max-height: fit-content; */
-  margin: 2px;
-}
 
 .mini {
   font-size: 0.9rem;

@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import {Button} from 'semantic-ui-react'
-import StopWatchTwo from './components/StopWatchTwo';
-import TimerTwo from './components/TimerTwo';
-import Dice from './components/Dice';
-import CoinFlip from './components/CoinFlip';
-import ScoreBoard from './components/ScoreBoard';
+import StopWatchTwo from './StopWatchTwo';
+import TimerTwo from './TimerTwo';
+import Dice from './Dice';
+import CoinFlip from './CoinFlip';
+import ScoreBoard from './ScoreBoard';
 
 function Container () {
 
@@ -12,16 +12,20 @@ function Container () {
         {tool:"dice", id:"0"},
         {tool:"timer",id:"1"},
         {tool:"stopwatch",id:"2"},
-        {tool:"coin",id:"3"}
+        {tool:"coin",id:"3"},
+        {tool: "scoreboard", id:"4"},
     ]);
+    const [boardLimit, setBoardLimit] = useState(true)
 
     const [componentId, setComponentId] = useState(tools.length)
 
     const clickHandler = (item) => {
-        setTools([...tools, {tool: item, id: componentId}])
+        let updatedTools = [...tools, {tool: item, id: componentId}]
+        setTools(updatedTools)
         setComponentId(prevState => {
             return prevState + 1
         })
+        checkLimit(updatedTools)
     }
 
     const removeTool = (id) => {
@@ -29,6 +33,18 @@ function Container () {
         let updatedTools = [...tools]
         updatedTools.splice(target, 1);
         setTools(updatedTools);
+        checkLimit(updatedTools)
+    }
+
+    const checkLimit = (updatedTools) => {
+        const check = updatedTools.filter((e) => {
+            return e.tool === "scoreboard"
+        })
+        if (check.length) {
+            setBoardLimit(true)
+        } else {
+            setBoardLimit(false)
+        }
     }
 
     const getComponent = (tool,id) => {
@@ -50,16 +66,17 @@ function Container () {
 
     return (
         <>
-        <div className="buttonContainer">
+        <div className="componentAppender">
             <Button size="large" icon="time" onClick={() => clickHandler("stopwatch")} />
             <Button size="large" icon="hourglass" onClick={() => clickHandler("timer")} />
             <Button size="large" icon="cube" onClick={() => clickHandler("dice")} />
             <Button size="large" icon="bitcoin" onClick={() => clickHandler("coin")} />
+            <Button size="large" icon="table" content="max: 1 (temp)" onClick={() => clickHandler("scoreboard")} disabled={boardLimit} />
         </div>
         <div className="flex">
             {tools.map((e) => {
                 return (
-                    <div className="toolContainer halfContainer" key={e.id}>
+                    <div className="toolContainer" key={e.id}>
                         {getComponent(e.tool,e.id)}
                     </div>
                 )

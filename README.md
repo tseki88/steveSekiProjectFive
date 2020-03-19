@@ -1,36 +1,74 @@
 # Boardgame Tool Kit
 
-## Live Link
-http://tseki88.github.io/steveSekiProjectFive
-
 ### Description
 Board Game Tool Kit: 
 An all in one app with multiple components that can be added based on the board game type.
 
-### Currently Available Tools
- - Count Down Timer
- - Stop Watch
- - Dice Rolling [4,6,8,10,12,20]
- - Coin Flip
+### Live Link
+- http://tseki88.github.io/steveSekiProjectFive
 
-### ToDo List
-- [x] Make another component, which can be added to the interface. 
-    - [ ] ScoreBoard (Currently fixing/updating for better UI)
-    - [x] Game Duration Timer
-    - [x] Count Down Timer
-    - [x] Dice Roller
-        - [x] multiple sided dice
-    - [x] Coin Flip
-        - [ ] find replacement Head/Tails images
-    - [ ] listed notes (for roleplaying or hint-relate games)
-        - [ ] drawing feature?
-    - [ ] Tally Counter
-    - [ ] Team Randomizer
-- [ ] Ability to add and remove multiple components of your choice to the interface, catering to each specific games needs.
+
+## Available Tools
+- Scoreboard (limit 1, **currently shares data for anyone to access)
+- Count Down Timer
+- Stop Watch
+- Dice Rolling [4,6,8,10,12,20]
+- Coin Flip
+
+
+## Features Being Worked On
+
+### App Features
+- [ ] Lock to prevent deleting components
+- [ ] Set up data structure to handle multiple scoreboard component data
+- [ ] User Authentication / Guest Access
+- [ ] Mute Sounds (when implemented)
+- [ ] Dark Mode
+- [ ] Accordion for each component (shrinks) it
+- [ ] Mobile UI/UX Optimization (size/render/accessing each component)
+    - sidebar menu?
+
+#### ScoreBoard
+- [ ] **Mobile view**
+- [ ] Ability to transpose the table data...
+- [ ] ScoreBoard Refactor into smaller components for performance optimization
+- [ ] Error Handler for player & scores have appropriate data (fill if missing)
+- [ ] Tally / Multiply Ability (point value e.g. for every Egg you get 5 points..)
+
+#### Count Down Timer
+- [ ] Option to set alarm sound
+- [ ] Maybe: a button to log the current time
+
+#### Coin Flip
+- [ ] find replacement Head/Tails images
+- [ ] coin flip sound
+
+#### Stop Watch
+- [ ] Maybe: a button to log the current time
+
+#### Dice Rolling [4,6,8,10,12,20]
+- [x] multiple sided dice
+- [ ] dice rolling sound
+
+
+## Stretch Goals / Ideas
+### App
+- [x] Ability to add and remove multiple components of your choice to the interface, catering to each specific games needs.
 - [ ] Ability to lock the component, to prevent removal.
-- [ ] Login authentication
-- [ ] Have Multiple "Sets" saved (with Custom Title)
+### Tools
+- [x] ScoreBoard
+- [x] Game Duration Timer
+- [x] Count Down Timer
+- [x] Dice Roller
+- [x] Coin Flip 
+- [ ] listed notes (for roleplaying/hints. pretty much a toDo/Note app)
+- [ ] Tally Counter
+- [ ] drawing feature?
+- [ ] Team Randomizer
 
-### Credit
-Semantic UI - https://github.com/Semantic-Org/Semantic-UI-React
-Dice Font - https://github.com/fponticelli/dicefont
+
+## Credit / Resources
+### Semantic UI
+ - https://github.com/Semantic-Org/Semantic-UI-React
+### Dice Font
+ - https://github.com/fponticelli/dicefont
