@@ -39,6 +39,7 @@ function ScoreBoard(props) {
             e.scores.push(0)
         })
         scoreTypeDbRef.set(newScoreState)
+        setConfirmDelete(null)
     }
 
     const confirmRemove = (type, i) => {
@@ -73,6 +74,7 @@ function ScoreBoard(props) {
         let newScoreState = [...scoreTypes, newScoreObject]
         
         scoreTypeDbRef.set(newScoreState)
+        setConfirmDelete(null)
     }
 
     const removeScoreCategory = (index) => {
@@ -102,6 +104,7 @@ function ScoreBoard(props) {
         playerDbRef.set(resetPlayers);
         scoreTypeDbRef.set(resetScores);
         setClearPopup(false)
+        setConfirmDelete(null)
     }
 
     const nameHandler = (event, index) => {
@@ -295,7 +298,7 @@ function ScoreBoard(props) {
             <Placeholder style={{ height: 200, width: 300 }} />
             </Segment>
             : 
-            <Table definition selectable singleLine >
+            <Table definition selectable unstackable columns="3" singleLine >
                 <Table.Header>
                     <Row>
                         <HeaderCell></HeaderCell>
@@ -321,7 +324,12 @@ function ScoreBoard(props) {
             </Table>
             }
             <Button.Group>
-                <Button icon={edit ? "unlock" : "lock"} color={edit ? null : "grey"} content={edit ? "Lock Table" : "Edit Table"} onClick={editToggle} />
+                <Button 
+                    icon={edit ? "unlock" : "lock"} 
+                    active={!edit}
+                    content={edit ? "Lock Table" : "Edit Table"} 
+                    onClick={editToggle} 
+                />
                 <Button icon="add user" content="Player" onClick={addPlayer} disabled={!edit} />
                 <Button icon="add" content="Row" onClick={addScore} disabled={!edit} />
                 <Popup

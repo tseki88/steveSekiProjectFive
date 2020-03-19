@@ -71,7 +71,7 @@ function Container () {
             <Button size="large" icon="hourglass" onClick={() => clickHandler("timer")} />
             <Button size="large" icon="cube" onClick={() => clickHandler("dice")} />
             <Button size="large" icon="bitcoin" onClick={() => clickHandler("coin")} />
-            <Button size="large" icon="table" content="temp: non-responsive / max-1" onClick={() => clickHandler("scoreboard")} disabled={boardLimit} />
+            <Button size="large" icon="table" content="temp: max-1" onClick={() => clickHandler("scoreboard")} disabled={boardLimit} />
         </div>
         <div className="flex">
             {tools.map((e) => {

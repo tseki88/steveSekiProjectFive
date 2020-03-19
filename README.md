@@ -29,7 +29,8 @@ An all in one app with multiple components that can be added based on the board 
     - sidebar menu?
 
 #### ScoreBoard
-- [ ] **Mobile view**
+- [x] Mobile view
+    - [ ] snap to grid, freeze first column
 - [ ] Ability to transpose the table data...
 - [ ] ScoreBoard Refactor into smaller components for performance optimization
 - [ ] Error Handler for player & scores have appropriate data (fill if missing)
@@ -52,10 +53,6 @@ An all in one app with multiple components that can be added based on the board 
 
 
 ## Stretch Goals / Ideas
-### App
-- [x] Ability to add and remove multiple components of your choice to the interface, catering to each specific games needs.
-- [ ] Ability to lock the component, to prevent removal.
-### Tools
 - [x] ScoreBoard
 - [x] Game Duration Timer
 - [x] Count Down Timer
@@ -63,7 +60,7 @@ An all in one app with multiple components that can be added based on the board 
 - [x] Coin Flip 
 - [ ] listed notes (for roleplaying/hints. pretty much a toDo/Note app)
 - [ ] Tally Counter
-- [ ] drawing feature?
+- [ ] drawing/sketch canvas?
 - [ ] Team Randomizer
 
 

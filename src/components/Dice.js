@@ -173,7 +173,7 @@ function Dice(props) {
                     on='click'
                     onOpen={() => setPopupRemove(true)}
                     onClose={() => setPopupRemove(false)}
-                    position='bottom center'
+                    position='bottom right'
                     open={popupRemove}
                 />
             </Button.Group>
