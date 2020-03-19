@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/steveSekiProjectFive/static/css/main.2b600585.chunk.css",
-    "main.js": "/steveSekiProjectFive/static/js/main.693b4eb4.chunk.js",
-    "main.js.map": "/steveSekiProjectFive/static/js/main.693b4eb4.chunk.js.map",
+    "main.css": "/steveSekiProjectFive/static/css/main.9b25f915.chunk.css",
+    "main.js": "/steveSekiProjectFive/static/js/main.81628a61.chunk.js",
+    "main.js.map": "/steveSekiProjectFive/static/js/main.81628a61.chunk.js.map",
     "runtime-main.js": "/steveSekiProjectFive/static/js/runtime-main.92f756c5.js",
     "runtime-main.js.map": "/steveSekiProjectFive/static/js/runtime-main.92f756c5.js.map",
     "static/css/2.5703e28c.chunk.css": "/steveSekiProjectFive/static/css/2.5703e28c.chunk.css",
-    "static/js/2.4504a11e.chunk.js": "/steveSekiProjectFive/static/js/2.4504a11e.chunk.js",
-    "static/js/2.4504a11e.chunk.js.map": "/steveSekiProjectFive/static/js/2.4504a11e.chunk.js.map",
+    "static/js/2.6451d172.chunk.js": "/steveSekiProjectFive/static/js/2.6451d172.chunk.js",
+    "static/js/2.6451d172.chunk.js.map": "/steveSekiProjectFive/static/js/2.6451d172.chunk.js.map",
     "index.html": "/steveSekiProjectFive/index.html",
-    "precache-manifest.48827f9643d80f1e42a460bc4ac15f92.js": "/steveSekiProjectFive/precache-manifest.48827f9643d80f1e42a460bc4ac15f92.js",
+    "precache-manifest.8b2f56b86a6db18ce06f4a3072fac11b.js": "/steveSekiProjectFive/precache-manifest.8b2f56b86a6db18ce06f4a3072fac11b.js",
     "service-worker.js": "/steveSekiProjectFive/service-worker.js",
     "static/css/2.5703e28c.chunk.css.map": "/steveSekiProjectFive/static/css/2.5703e28c.chunk.css.map",
-    "static/css/main.2b600585.chunk.css.map": "/steveSekiProjectFive/static/css/main.2b600585.chunk.css.map",
+    "static/css/main.9b25f915.chunk.css.map": "/steveSekiProjectFive/static/css/main.9b25f915.chunk.css.map",
     "static/media/semantic.min.css": "/steveSekiProjectFive/static/media/outline-icons.ef60a4f6.woff",
     "static/media/dicefont.css": "/steveSekiProjectFive/static/media/dicefont.eb59a4b3.eot"
   },
   "entrypoints": [
     "static/js/runtime-main.92f756c5.js",
     "static/css/2.5703e28c.chunk.css",
-    "static/js/2.4504a11e.chunk.js",
-    "static/css/main.2b600585.chunk.css",
-    "static/js/main.693b4eb4.chunk.js"
+    "static/js/2.6451d172.chunk.js",
+    "static/css/main.9b25f915.chunk.css",
+    "static/js/main.81628a61.chunk.js"
   ]
 }
