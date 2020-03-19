@@ -35,7 +35,7 @@ function TimerTwo(props) {
                     <Button icon='undo' content='Reset' onClick={resetTimer} disabled={running} />
                 </Button.Group>
                 <Button.Group >
-                    <Button compact content="+ 10 sec." disabled={running} onClick={() => addTimerValue(100)} />
+                    <Button compact content="+ 10 sec." disabled={running} onClick={() => addTimerValue(1000)} />
                     <Button compact content="+ 30 sec." disabled={running} onClick={() => addTimerValue(3000)} />
                     <Button compact content="+ 1 min." disabled={running} onClick={() => addTimerValue(6000)} />
                     <Button compact content="+ 5 min." disabled={running} onClick={() => addTimerValue(30000)} />
