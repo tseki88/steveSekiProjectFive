@@ -76,7 +76,7 @@ function CoinFlip(props) {
     }, [rolling])
     
     return (
-        <>
+        <div className="toolContainer">
             <Header size="medium" icon="bitcoin" content="Coin" dividing />
             <Icon name="delete" onClick={props.delete} />
             <div className="diceContainer">
@@ -111,7 +111,7 @@ function CoinFlip(props) {
                     open={popup}
                 />
             </Button.Group>
-        </>
+        </div>
     )
 }
 

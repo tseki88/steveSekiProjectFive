@@ -76,9 +76,9 @@ function Container () {
         <div className="flex">
             {tools.map((e) => {
                 return (
-                    <div className="toolContainer" key={e.id}>
-                        {getComponent(e.tool,e.id)}
-                    </div>
+                    // <div className="toolContainer" key={e.id}>
+                        getComponent(e.tool,e.id)
+                    // </div>
                 )
             })}
         </div>

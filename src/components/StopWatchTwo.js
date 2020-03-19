@@ -7,7 +7,7 @@ function StopWatchTwo(props) {
     const {time, running, toggleRunning, resetTimer} = useTimer(true);
 
     return (
-        <>
+        <div className="toolContainer">
             <Header size="medium" icon="time" content="Stop Watch" dividing />
             <Icon name="delete" onClick={props.delete} />
             <TimerDisplay time={time} />
@@ -15,7 +15,7 @@ function StopWatchTwo(props) {
                 <Button icon={running ? "pause" : "play"} content={running ? "Pause" : "Start"} onClick={toggleRunning} />
                 <Button icon='undo' content='Reset' onClick={resetTimer} disabled={running} />
             </Button.Group>
-        </>
+        </div>
     )
 }
 

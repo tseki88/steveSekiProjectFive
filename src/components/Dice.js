@@ -110,7 +110,7 @@ function Dice(props) {
     }, [rolling])
     
     return (
-        <>
+        <div className="toolContainer">
             <Header size="medium" icon="cube" content="Dice" dividing />
             <Icon name="delete" onClick={props.delete} />
             <div className="diceContainer">
@@ -192,7 +192,7 @@ function Dice(props) {
                     open={popup}
                 />
             </Button.Group>
-        </>
+        </div>
     )
 }
 

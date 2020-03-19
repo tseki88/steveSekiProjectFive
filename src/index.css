@@ -152,8 +152,13 @@ tr th {
   border-radius: 6px;
   margin: 2px;
   min-width: 300px;
-  max-width: 600px;
+  max-width: 300px;
+  /* max-width: 600px; */
   height: fit-content;
+}
+
+.scoreContainer {
+  max-width: none;
 }
 
 /* For Timers on Larger Screens */

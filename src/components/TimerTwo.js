@@ -7,7 +7,7 @@ function TimerTwo(props) {
     const {time, running, toggleRunning, resetTimer, addTimerValue, alert, setAlert} = useTimer(false);
 
     return (
-        <>
+        <div className="toolContainer">
             <Popup
                 trigger={<Header size="medium" icon="hourglass" content="Timer" dividing />}
                 content={
@@ -35,7 +35,7 @@ function TimerTwo(props) {
                     <Button compact content="+ 5 min." disabled={running} onClick={() => addTimerValue(30000)} />
                 </Button.Group>
             </div>
-        </>
+        </div>
     )
 }
 

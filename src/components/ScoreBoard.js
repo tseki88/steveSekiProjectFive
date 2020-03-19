@@ -282,7 +282,7 @@ function ScoreBoard(props) {
     },[])
 
     return (
-        <div>
+        <div className="toolContainer scoreContainer">
             <Header size="medium" icon="table" content="Score Card" dividing />
             <Icon name="delete" onClick={props.delete} />
             {
