@@ -1,27 +1,31 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "84af54b1db83c439121f5abcf0f81b19",
+    "revision": "0b5b5a1df3c38673b605c91638b1f634",
     "url": "/steveSekiProjectFive/index.html"
   },
   {
-    "revision": "d7bad021b525eda8d290",
+    "revision": "3494cd109e6a42c84d64",
     "url": "/steveSekiProjectFive/static/css/2.5703e28c.chunk.css"
   },
   {
-    "revision": "a7b2aede88ae2a26c20d",
-    "url": "/steveSekiProjectFive/static/css/main.b434d0a8.chunk.css"
+    "revision": "c404c7c6cc5e084d0077",
+    "url": "/steveSekiProjectFive/static/css/main.ac2c0418.chunk.css"
   },
   {
-    "revision": "d7bad021b525eda8d290",
-    "url": "/steveSekiProjectFive/static/js/2.6451d172.chunk.js"
+    "revision": "3494cd109e6a42c84d64",
+    "url": "/steveSekiProjectFive/static/js/2.aa1035e4.chunk.js"
   },
   {
-    "revision": "a7b2aede88ae2a26c20d",
-    "url": "/steveSekiProjectFive/static/js/main.82be80e5.chunk.js"
+    "revision": "c404c7c6cc5e084d0077",
+    "url": "/steveSekiProjectFive/static/js/main.874e9d2d.chunk.js"
   },
   {
     "revision": "22d0ae736005f4aaf663",
     "url": "/steveSekiProjectFive/static/js/runtime-main.92f756c5.js"
+  },
+  {
+    "revision": "91de772f122a84c718c6fefbd0129740",
+    "url": "/steveSekiProjectFive/static/media/alarm.91de772f.mp3"
   },
   {
     "revision": "13db00b7a34fee4d819ab7f9838cc428",
@@ -44,6 +48,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/steveSekiProjectFive/static/media/brand-icons.e8c322de.woff2"
   },
   {
+    "revision": "e1a04d9f851b658af67d37696d8a9978",
+    "url": "/steveSekiProjectFive/static/media/coin.e1a04d9f.mp3"
+  },
+  {
+    "revision": "42028cbf80989fec1db204fffc1a3ed2",
+    "url": "/steveSekiProjectFive/static/media/diceThrow2.42028cbf.wav"
+  },
+  {
     "revision": "1061112a0ed8424ff19c03c1c1fb1af4",
     "url": "/steveSekiProjectFive/static/media/dicefont.1061112a.svg"
   },
@@ -58,6 +70,30 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "eb59a4b307aa9437891dbc12e2e4c859",
     "url": "/steveSekiProjectFive/static/media/dicefont.eb59a4b3.eot"
+  },
+  {
+    "revision": "b29cf404e0e7b87af9c51062fad6286c",
+    "url": "/steveSekiProjectFive/static/media/dieShuffle1.b29cf404.wav"
+  },
+  {
+    "revision": "a058de4662c05b79bc207ab6141314ed",
+    "url": "/steveSekiProjectFive/static/media/dieShuffle2.a058de46.wav"
+  },
+  {
+    "revision": "6a594926123f86d14e19fd166f15e558",
+    "url": "/steveSekiProjectFive/static/media/dieShuffle3.6a594926.wav"
+  },
+  {
+    "revision": "07ec7caafa75f405d13d94685c1a7f45",
+    "url": "/steveSekiProjectFive/static/media/dieThrow1.07ec7caa.wav"
+  },
+  {
+    "revision": "60f2c07aa378aca5265e7b137a8fa2b3",
+    "url": "/steveSekiProjectFive/static/media/dieThrow2.60f2c07a.wav"
+  },
+  {
+    "revision": "f4755e95d1aa569e9e83eeb5c1fcc063",
+    "url": "/steveSekiProjectFive/static/media/dieThrow3.f4755e95.wav"
   },
   {
     "revision": "9c74e172f87984c48ddf5c8108cabe67",
