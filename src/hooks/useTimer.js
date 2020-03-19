@@ -1,6 +1,9 @@
 import {useState, useEffect} from 'react'
+import alarm from '../assets/sounds/alarm.mp3'
 
-function useTimer(increment) {
+function useTimer(increment, mute = null) {
+    const alertSound = new Audio(alarm)
+    
     const [time, setTime] = useState(0);
     const [running, setRunning] = useState(false);
     const [alert, setAlert] = useState(false)
@@ -12,6 +15,22 @@ function useTimer(increment) {
     const resetTimer = () => {
         setTime(0)
     }
+
+    useEffect(() => {
+        if (!mute) {    
+            if (alert) {
+                alertSound.play()
+            } else {
+                alertSound.pause();
+                alertSound.currentTime=0;
+            }
+        }
+
+        return (() => {
+            alertSound.pause();
+            alertSound.currentTime=0;
+        })
+    },[alert])
     
     const steps = () => {
         if (increment) {
@@ -27,7 +46,6 @@ function useTimer(increment) {
             setTime(prevTime => {
                 return prevTime - 1
             })
-
         }
     }
 

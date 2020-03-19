@@ -29,15 +29,15 @@ An all in one app with multiple components that can be added based on the board 
     - sidebar menu?
 
 #### ScoreBoard
+- [ ] ScoreBoard Refactor into smaller components for performance optimization
 - [x] Mobile view
     - [ ] snap to grid, freeze first column
 - [ ] Ability to transpose the table data...
-- [ ] ScoreBoard Refactor into smaller components for performance optimization
 - [ ] Error Handler for player & scores have appropriate data (fill if missing)
 - [ ] Tally / Multiply Ability (point value e.g. for every Egg you get 5 points..)
 
 #### Count Down Timer
-- [ ] Option to set alarm sound
+- [x] Option to set alarm sound
 - [ ] Maybe: a button to log the current time
 
 #### Coin Flip
@@ -49,7 +49,7 @@ An all in one app with multiple components that can be added based on the board 
 
 #### Dice Rolling [4,6,8,10,12,20]
 - [x] multiple sided dice
-- [ ] dice rolling sound
+- [x] dice rolling sound
 
 
 ## Stretch Goals / Ideas

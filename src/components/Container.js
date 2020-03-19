@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Button} from 'semantic-ui-react'
+import {Button, Label} from 'semantic-ui-react'
 import StopWatchTwo from './StopWatchTwo';
 import TimerTwo from './TimerTwo';
 import Dice from './Dice';
@@ -18,6 +18,11 @@ function Container () {
     const [boardLimit, setBoardLimit] = useState(true)
 
     const [componentId, setComponentId] = useState(tools.length)
+    const [mute, setMute] = useState(false)
+
+    const toggleMute = () => {
+        setMute(!mute)
+    }
 
     const clickHandler = (item) => {
         let updatedTools = [...tools, {tool: item, id: componentId}]
@@ -50,13 +55,13 @@ function Container () {
     const getComponent = (tool,id) => {
         switch(tool) {
             case "timer":
-                return <TimerTwo key={id} delete={() => removeTool(id)} />
+                return <TimerTwo key={id} delete={() => removeTool(id)} mute={mute} />
             case "stopwatch":
                 return <StopWatchTwo key={id} delete={() => removeTool(id)} />
             case "dice":
-                return <Dice key={id} delete={() => removeTool(id)} />
+                return <Dice key={id} delete={() => removeTool(id)} mute={mute} />
             case "coin":
-                return <CoinFlip key={id} delete={() => removeTool(id)} />
+                return <CoinFlip key={id} delete={() => removeTool(id)} mute={mute} />
             case "scoreboard":
                 return <ScoreBoard key={id} delete={() => removeTool(id)} />
             default:
@@ -67,11 +72,14 @@ function Container () {
     return (
         <>
         <div className="componentAppender">
+        <Button size="large" icon={mute ? "volume off" : "volume up"} color={mute ? "red" : "green"} onClick={toggleMute} />
+        {/* <Button.Group > */}
             <Button size="large" icon="time" onClick={() => clickHandler("stopwatch")} />
             <Button size="large" icon="hourglass" onClick={() => clickHandler("timer")} />
             <Button size="large" icon="cube" onClick={() => clickHandler("dice")} />
             <Button size="large" icon="bitcoin" onClick={() => clickHandler("coin")} />
             <Button size="large" icon="table" content="temp: max-1" onClick={() => clickHandler("scoreboard")} disabled={boardLimit} />
+        {/* </Button.Group> */}
         </div>
         <div className="flex">
             {tools.map((e) => {

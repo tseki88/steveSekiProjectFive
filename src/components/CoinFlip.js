@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Header, Button, Popup, Transition, Icon } from 'semantic-ui-react';
-
-// Custom Coin Faces?
-// roll coins. lol
+import coinSound from '../assets/sounds/coin.mp3';
 
 function CoinFlip(props) {
     const [coin, setCoin] = useState([[2]])
@@ -48,6 +46,12 @@ function CoinFlip(props) {
     }
 
     const rollCoin = () => {
+        if (!props.mute){
+            for (let i = 0; i < coin.length; i++) {
+                const flipSound = new Audio(coinSound)
+                flipSound.play()
+            }
+        }
         setRolling(true)
         setSum("Calc")
         displayRandom()
@@ -77,7 +81,11 @@ function CoinFlip(props) {
     
     return (
         <div className="toolContainer">
-            <Header size="medium" icon="bitcoin" content="Coin" dividing />
+            <Header size="medium" dividing>
+                <Icon name="bitcoin" />
+                <Header.Content>Coin</Header.Content>
+                <Icon name={props.mute ? "volume off" : "volume up"} color={props.mute ? "red" : "green"} className="toolStatus" />
+            </Header>
             <Icon name="delete" onClick={props.delete} />
             <div className="diceContainer">
                 {coin.map((e, i) => {
@@ -93,7 +101,7 @@ function CoinFlip(props) {
                 })}
             </div>
             <Button.Group>
-                <Button icon="shuffle" content="Flip" onClick={rollCoin} disabled={rolling} />
+                <Button icon="shuffle" content="Flip" onClick={rollCoin} disabled={rolling || coin.length === 0} />
                 <Button icon="add" onClick={addCoin} disabled={rolling} />
                 <Button icon="minus" onClick={removeCoin} disabled={coin.length === 0 || rolling} />
             </Button.Group>
