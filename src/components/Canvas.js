@@ -7,6 +7,7 @@ function Canvas(props) {
     const [color, setColor] = useState("#ff0000")
     const [popup, setPopup] = useState(false)
     const canvasRef = useRef(null)
+    const canvasWrapper = useRef(null)
     
     const colorHandler = (event) => {
         setColor(event.target.value)
@@ -90,6 +91,10 @@ function Canvas(props) {
             return;
         }
         const canvas = canvasRef.current
+        const canvasParent = canvasWrapper.current;
+        canvas.width = canvasParent.clientWidth;
+        canvas.height = canvasParent.clientHeight;
+
         canvas.addEventListener('touchstart', startPaint);
         canvas.addEventListener('mousedown', startPaint);
 
@@ -136,12 +141,12 @@ function Canvas(props) {
         <div className="toolContainer">
             <Header size="medium" icon="pencil" content="Canvas" dividing />
             <Icon name="delete" onClick={props.delete} />     
-            <canvas
-                ref={canvasRef}
-                width="274px"
-                height="202px"
-                style={{"border":"1px solid black"}}
-            />
+            <div className="canvasContainer" ref={canvasWrapper}>
+                <canvas
+                    ref={canvasRef}
+                    style={{"border":"1px solid black"}}
+                    />
+                </div>
             <div>
             <Input type="color" list="colorList" value={color} onChange={(e) => colorHandler(e)} />
             <datalist id="colorList">

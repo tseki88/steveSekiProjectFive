@@ -62,14 +62,14 @@ An all in one app with multiple components that can be added based on the board 
 - [x] coin flip sound
 
 #### Stop Watch
-- N/A
+- n/a
 
 #### Dice Rolling [4,6,8,10,12,20]
 - [x] multiple sided dice
 - [x] dice rolling sound
 
 #### Canvas
-- [ ] fix size/scaling issue leading to incorrect input location
+- [x] fix size/scaling issue leading to incorrect input location
 - [ ] ability to resize(or at least offer a bigger size)
     - Brings up the question on layout of toolkit, should it be grid based?
 - [ ] ability to keep current state of sketch like our scoreboard (need data structure first)

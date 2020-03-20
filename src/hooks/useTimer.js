@@ -1,4 +1,4 @@
-import {useState, useEffect, useMemo, useCallback} from 'react'
+import {useState, useEffect} from 'react'
 import alarm from '../assets/sounds/alarm.mp3'
 
 function useTimer(increment, mute = null) {
@@ -50,31 +50,33 @@ function useTimer(increment, mute = null) {
     
     
     useEffect(() => {
-        const steps = () => {
-            if (increment) {
-                setTime(prevTime => {
-                    return prevTime + 2
-                })
-            } else {
-                if (time <= 0){
-                    setRunning(false)
-                    setAlert(true)
-                } else {
+        const timer = setInterval(() => {
+            if (running) {
+                if (increment) {
                     setTime(prevTime => {
-                        return prevTime - 2
+                        return prevTime + 2
                     })
+                } else {
+                    if (time <= 0){
+                        setRunning(false)
+                        setAlert(true)
+                        clearInterval(timer)
+                    } else {
+                        setTime(prevTime => {
+                            return prevTime - 2
+                        })
+                    }
                 }
             }
-        }
+        }, 20)
         
-        const timer = setInterval(steps, 20)
-        if (!running) clearInterval(timer);
+        // if (!running) clearInterval(timer);
 
         return () => {
             clearInterval(timer)
-            console.log("hey")
+            // console.log("hey")
         }
-    },[running,time])
+    })
     
     return {time, running, toggleRunning, resetTimer, addTimerValue, alert, setAlert, maxTime}
 }
