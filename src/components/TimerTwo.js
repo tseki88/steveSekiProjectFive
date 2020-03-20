@@ -4,14 +4,37 @@ import useTimer from '../hooks/useTimer';
 import { Header, Button, Icon, Popup } from 'semantic-ui-react'
 
 function TimerTwo(props) {
-    const {time, running, toggleRunning, resetTimer, addTimerValue, alert, setAlert} = useTimer(false, props.mute);
+    const {
+        time, 
+        running, 
+        toggleRunning, 
+        resetTimer, 
+        addTimerValue, 
+        alert, 
+        setAlert, 
+        maxTime
+    } = useTimer(false, props.mute);
 
     return (
         <div className="toolContainer">
             <Popup
                 trigger={
                     <Header size="medium" dividing>
-                        <Icon name="hourglass" />
+                        <Icon name={
+                            !running && maxTime
+                            ?
+                            "hourglass"
+                            :
+                                running && time / maxTime > 0.9
+                                ?
+                                "hourglass start"
+                                :
+                                    running && time / maxTime > 0.1
+                                    ?
+                                    "hourglass half"
+                                    :
+                                    "hourglass end"
+                        } />
                         <Header.Content>Timer</Header.Content>
                         <Icon name={props.mute ? "volume off" : "volume up"} color={props.mute ? "red" : "green"} className="toolStatus" />
                     </Header>

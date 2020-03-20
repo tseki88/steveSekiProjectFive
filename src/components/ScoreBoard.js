@@ -323,7 +323,7 @@ function ScoreBoard(props) {
                 </Footer>
             </Table>
             }
-            <Button.Group>
+            <Button.Group compact>
                 <Button 
                     icon={edit ? "unlock" : "lock"} 
                     active={!edit}

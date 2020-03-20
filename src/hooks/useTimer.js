@@ -3,7 +3,8 @@ import alarm from '../assets/sounds/alarm.mp3'
 
 function useTimer(increment, mute = null) {
     const alertSound = new Audio(alarm)
-    
+
+    const [maxTime, setMaxTime] = useState(0);
     const [time, setTime] = useState(0);
     const [running, setRunning] = useState(false);
     const [alert, setAlert] = useState(false)
@@ -14,6 +15,7 @@ function useTimer(increment, mute = null) {
 
     const resetTimer = () => {
         setTime(0)
+        setMaxTime(0)
     }
 
     useEffect(() => {
@@ -25,6 +27,8 @@ function useTimer(increment, mute = null) {
                 alertSound.currentTime=0;
             }
         }
+
+        setMaxTime(0)
 
         return (() => {
             alertSound.pause();
@@ -50,6 +54,12 @@ function useTimer(increment, mute = null) {
     }
 
     const addTimerValue = (value) => {
+        if (!increment) {
+            setMaxTime(prevTime => {
+                return prevTime + value
+            })
+        }
+        
         setTime(prevTime => {
             return prevTime + value
         })
@@ -63,7 +73,7 @@ function useTimer(increment, mute = null) {
     
     running ? setTimeout(steps, 10) : clearTimeout(steps);
     
-    return {time, running, toggleRunning, resetTimer, addTimerValue, alert, setAlert}
+    return {time, running, toggleRunning, resetTimer, addTimerValue, alert, setAlert, maxTime, setMaxTime}
 }
 
 export default useTimer

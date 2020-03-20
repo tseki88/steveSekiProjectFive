@@ -147,6 +147,10 @@ th input,
   border-radius: none !important;
 }
 
+input[type="color"] {
+  padding: 0 !important;
+}
+
 tr th {
   text-align: left;
   padding: 0 !important
@@ -288,7 +292,10 @@ Add Score Type Button Icon */
 
 
 @media (max-width: 460px) {
-  
+  body {
+    font-size: 14px;
+  }
+
   .timeDisplay {
     width: 100%;
   }

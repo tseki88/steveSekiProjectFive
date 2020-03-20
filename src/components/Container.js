@@ -5,6 +5,7 @@ import TimerTwo from './TimerTwo';
 import Dice from './Dice';
 import CoinFlip from './CoinFlip';
 import ScoreBoard from './ScoreBoard';
+import Canvas from './Canvas';
 
 function Container () {
 
@@ -14,6 +15,7 @@ function Container () {
         {tool:"stopwatch",id:"2"},
         {tool:"coin",id:"3"},
         {tool: "scoreboard", id:"4"},
+        {tool: "canvas", id: "5"}
     ]);
     const [boardLimit, setBoardLimit] = useState(true)
 
@@ -64,6 +66,8 @@ function Container () {
                 return <CoinFlip key={id} delete={() => removeTool(id)} mute={mute} />
             case "scoreboard":
                 return <ScoreBoard key={id} delete={() => removeTool(id)} />
+            case "canvas":
+                return <Canvas key={id} delete={() => removeTool(id)} />
             default:
                 return
         }
@@ -78,6 +82,7 @@ function Container () {
             <Button size="large" icon="hourglass" onClick={() => clickHandler("timer")} />
             <Button size="large" icon="cube" onClick={() => clickHandler("dice")} />
             <Button size="large" icon="bitcoin" onClick={() => clickHandler("coin")} />
+            <Button size="large" icon="pencil" onClick={() => clickHandler("canvas")} />
             <Button size="large" icon="table" content="temp: max-1" onClick={() => clickHandler("scoreboard")} disabled={boardLimit} />
         {/* </Button.Group> */}
         </div>
