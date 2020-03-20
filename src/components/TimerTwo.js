@@ -11,7 +11,7 @@ function TimerTwo(props) {
         resetTimer, 
         addTimerValue, 
         alert, 
-        setAlert, 
+        setAlert,
         maxTime
     } = useTimer(false, props.mute);
 
@@ -40,7 +40,7 @@ function TimerTwo(props) {
                     </Header>
                 }
                 content={
-                <Button content="Time's Up!" color="red" size="large" onClick={() => setAlert(false)} />}
+                <Button content="Time's Up!" color="red" size="large" onClick={()=> setAlert(false)} />}
                 position="bottom left"
                 open={alert}
             />

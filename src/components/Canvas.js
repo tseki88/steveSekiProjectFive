@@ -1,8 +1,6 @@
 import React, {useState, useEffect, useRef, useCallback} from 'react'
 import { Header, Button, Icon, Input, Popup } from 'semantic-ui-react';
 
-// Credits to Ankur Sheel for help with Canvas using hooks
-
 function Canvas(props) {
     const [mousePosition, setMousePosition] = useState();
     const [isPainting, setIsPainting] = useState(false)

@@ -56,7 +56,6 @@ An all in one app with multiple components that can be added based on the board 
 
 #### Count Down Timer
 - [x] Option to set alarm sound
-- [ ] Maybe: a button to log the current time
 
 #### Coin Flip
 - [ ] find replacement Head/Tails images
@@ -70,6 +69,7 @@ An all in one app with multiple components that can be added based on the board 
 - [x] dice rolling sound
 
 #### Canvas
+- [ ] fix size/scaling issue leading to incorrect input location
 - [ ] ability to resize(or at least offer a bigger size)
     - Brings up the question on layout of toolkit, should it be grid based?
 - [ ] ability to keep current state of sketch like our scoreboard (need data structure first)
@@ -98,5 +98,5 @@ An all in one app with multiple components that can be added based on the board 
  - Kenney Vleugels (www.kenney.nl)
 ### Dice Font
  - https://github.com/fponticelli/dicefont
-### Canvas
+### Canvas Tutorial
  - https://github.com/AnkurSheel/react-drawing-interaction

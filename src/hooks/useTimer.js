@@ -1,8 +1,7 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useMemo, useCallback} from 'react'
 import alarm from '../assets/sounds/alarm.mp3'
 
 function useTimer(increment, mute = null) {
-    const alertSound = new Audio(alarm)
 
     const [maxTime, setMaxTime] = useState(0);
     const [time, setTime] = useState(0);
@@ -19,6 +18,7 @@ function useTimer(increment, mute = null) {
     }
 
     useEffect(() => {
+        const alertSound = new Audio(alarm)
         if (!mute) {    
             if (alert) {
                 alertSound.play()
@@ -36,23 +36,6 @@ function useTimer(increment, mute = null) {
         })
     },[alert])
     
-    const steps = () => {
-        if (increment) {
-            setTime(prevTime => {
-                return prevTime + 1
-            })
-        } else {
-            if (time === 1){
-                setRunning(false)
-                setAlert(true)
-            }
-
-            setTime(prevTime => {
-                return prevTime - 1
-            })
-        }
-    }
-
     const addTimerValue = (value) => {
         if (!increment) {
             setMaxTime(prevTime => {
@@ -65,15 +48,35 @@ function useTimer(increment, mute = null) {
         })
     }
     
+    
     useEffect(() => {
-        return () => {
-            clearTimeout(steps)
+        const steps = () => {
+            if (increment) {
+                setTime(prevTime => {
+                    return prevTime + 2
+                })
+            } else {
+                if (time <= 0){
+                    setRunning(false)
+                    setAlert(true)
+                } else {
+                    setTime(prevTime => {
+                        return prevTime - 2
+                    })
+                }
+            }
         }
-    })
+        
+        const timer = setInterval(steps, 20)
+        if (!running) clearInterval(timer);
+
+        return () => {
+            clearInterval(timer)
+            console.log("hey")
+        }
+    },[running,time])
     
-    running ? setTimeout(steps, 10) : clearTimeout(steps);
-    
-    return {time, running, toggleRunning, resetTimer, addTimerValue, alert, setAlert, maxTime, setMaxTime}
+    return {time, running, toggleRunning, resetTimer, addTimerValue, alert, setAlert, maxTime}
 }
 
 export default useTimer
