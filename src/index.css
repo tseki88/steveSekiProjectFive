@@ -92,7 +92,7 @@ header {
 }
 
 .buttonContainer {
-  width: 280px;
+  /* width: 280px; */
   margin: 0 auto;
 }
 
@@ -287,6 +287,10 @@ Add Score Type Button Icon */
 
   table {
     display: block;
+  }
+
+  .buttonContainer {
+    width: 100%;
   }
 }
 
