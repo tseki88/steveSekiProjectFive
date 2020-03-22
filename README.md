@@ -43,7 +43,8 @@ An all in one app with multiple components that can be added based on the board 
 - [x] Grid Layout
 - [ ] Accordion for each component (shrinking it?)
 - [ ] Mobile UI/UX Optimization (size/render/accessing each component)
-    - sidebar menu?
+    - [x] sidebar menu
+    - [ ] fix position sticky.
 
 #### ScoreBoard
 - [ ] ScoreBoard Refactor into smaller components for performance optimization

@@ -50,7 +50,7 @@ footer {
   padding: 10px;
   margin: 10px auto 0;
   background-color: #1b1c1d;
-  box-shadow: 0 0 5px black;
+  box-shadow: 0 0 5px white;
 }
 
 footer a {
@@ -278,6 +278,7 @@ h1 {
 
 canvas {
   width: 100%;
+  box-shadow: 0 0 2px white;
 }
 
 /* Timer/Countdown Tool Timer Display */
@@ -309,13 +310,15 @@ canvas {
 
 .ui.toggle.checkbox input:checked ~ .box::before, .ui.toggle.checkbox input:focus:checked ~ label::before,
 .ui.toggle.checkbox input:checked ~ .box::before, .ui.toggle.checkbox input:checked ~ label::before {
-  background-color: grey !important
+  background-color: navy !important;
+  box-shadow: 0 0 2px white;
 }
 
 .ui.toggle.checkbox .box::before, .ui.toggle.checkbox label::before,
 .ui.toggle.checkbox .box::before, .ui.toggle.checkbox label:hover::before,
 .ui.toggle.checkbox input:focus ~ .box::before, .ui.toggle.checkbox input:focus ~ label::before {
   background-color: lightblue;
+  box-shadow: 0 0 2px white;
 }
 
 .darkMode,
@@ -337,7 +340,7 @@ canvas {
 }
 
 .darkMode.toolContainer {
-  background-color: #222;
+  background-color: #2b2b2b;
   box-shadow: 0 0 3px #ccc;
 }
 

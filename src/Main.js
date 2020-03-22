@@ -59,7 +59,7 @@ function Main(props) {
                 <Menu.Item icon="cube" onClick={() => clickHandler("dice")} />
                 <Menu.Item icon="bitcoin" onClick={() => clickHandler("coin")} />
                 <Menu.Item icon="pencil" onClick={() => clickHandler("canvas")} />
-                <Menu.Item icon="table" onClick={!boardLimit ? () => clickHandler("scoreboard") : null} />
+                <Menu.Item content="max: 1 (temp)" icon="table" onClick={!boardLimit ? () => clickHandler("scoreboard") : null} />
             </Sidebar>
             <Sidebar.Pusher dimmed={props.visible}>
                 <Container tools={tools} setTools={setTools} checkLimit={checkLimit} />

@@ -83,7 +83,7 @@ function Container (props) {
         <>
 
             <div className="componentAppender">
-            <Button size="large" icon={mute ? "volume off" : "volume up"} color={mute ? "red" : "green"} onClick={toggleMute} inverted={darkMode} />
+            <Button size="large" icon={mute ? "volume off" : "volume up"} color={mute ? "red" : "green"} onClick={toggleMute} />
             {/* <Button.Group > */}
                 {/* <Button size="large" icon="time" onClick={() => clickHandler("stopwatch")} inverted={darkMode} />
                 <Button size="large" icon="hourglass" onClick={() => clickHandler("timer")} inverted={darkMode} />
