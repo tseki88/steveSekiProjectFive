@@ -61,7 +61,7 @@ function Main(props) {
                 <Menu.Item icon="pencil" onClick={() => clickHandler("canvas")} />
                 <Menu.Item icon="table" onClick={!boardLimit ? () => clickHandler("scoreboard") : null} />
             </Sidebar>
-            <Sidebar.Pusher>
+            <Sidebar.Pusher dimmed={props.visible}>
                 <Container tools={tools} setTools={setTools} checkLimit={checkLimit} />
             </Sidebar.Pusher>
         </Sidebar.Pushable>
