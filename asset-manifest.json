@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/steveSekiProjectFive/static/css/main.942a15fd.chunk.css",
-    "main.js": "/steveSekiProjectFive/static/js/main.628c4ec9.chunk.js",
-    "main.js.map": "/steveSekiProjectFive/static/js/main.628c4ec9.chunk.js.map",
+    "main.css": "/steveSekiProjectFive/static/css/main.2344e52b.chunk.css",
+    "main.js": "/steveSekiProjectFive/static/js/main.e2f0941f.chunk.js",
+    "main.js.map": "/steveSekiProjectFive/static/js/main.e2f0941f.chunk.js.map",
     "runtime-main.js": "/steveSekiProjectFive/static/js/runtime-main.92f756c5.js",
     "runtime-main.js.map": "/steveSekiProjectFive/static/js/runtime-main.92f756c5.js.map",
     "static/css/2.5703e28c.chunk.css": "/steveSekiProjectFive/static/css/2.5703e28c.chunk.css",
-    "static/js/2.68ece4d1.chunk.js": "/steveSekiProjectFive/static/js/2.68ece4d1.chunk.js",
-    "static/js/2.68ece4d1.chunk.js.map": "/steveSekiProjectFive/static/js/2.68ece4d1.chunk.js.map",
+    "static/js/2.851ccb9c.chunk.js": "/steveSekiProjectFive/static/js/2.851ccb9c.chunk.js",
+    "static/js/2.851ccb9c.chunk.js.map": "/steveSekiProjectFive/static/js/2.851ccb9c.chunk.js.map",
     "index.html": "/steveSekiProjectFive/index.html",
-    "precache-manifest.ef3f9287aef96c01aa921014a94b1bfc.js": "/steveSekiProjectFive/precache-manifest.ef3f9287aef96c01aa921014a94b1bfc.js",
+    "precache-manifest.83994ea34aefadba69001cca05e45a02.js": "/steveSekiProjectFive/precache-manifest.83994ea34aefadba69001cca05e45a02.js",
     "service-worker.js": "/steveSekiProjectFive/service-worker.js",
     "static/css/2.5703e28c.chunk.css.map": "/steveSekiProjectFive/static/css/2.5703e28c.chunk.css.map",
-    "static/css/main.942a15fd.chunk.css.map": "/steveSekiProjectFive/static/css/main.942a15fd.chunk.css.map",
+    "static/css/main.2344e52b.chunk.css.map": "/steveSekiProjectFive/static/css/main.2344e52b.chunk.css.map",
     "static/media/alarm.mp3": "/steveSekiProjectFive/static/media/alarm.91de772f.mp3",
     "static/media/semantic.min.css": "/steveSekiProjectFive/static/media/outline-icons.ef60a4f6.woff",
     "static/media/coin.mp3": "/steveSekiProjectFive/static/media/coin.e1a04d9f.mp3",
@@ -28,8 +28,8 @@
   "entrypoints": [
     "static/js/runtime-main.92f756c5.js",
     "static/css/2.5703e28c.chunk.css",
-    "static/js/2.68ece4d1.chunk.js",
-    "static/css/main.942a15fd.chunk.css",
-    "static/js/main.628c4ec9.chunk.js"
+    "static/js/2.851ccb9c.chunk.js",
+    "static/css/main.2344e52b.chunk.css",
+    "static/js/main.e2f0941f.chunk.js"
   ]
 }
