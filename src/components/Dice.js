@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Header, Button, Icon, Popup, Transition } from 'semantic-ui-react';
 import diceThrow from '../assets/sounds/diceThrow2.wav'
 import dieShuffle1 from '../assets/sounds/dieShuffle1.wav'
@@ -7,6 +7,7 @@ import dieShuffle3 from '../assets/sounds/dieShuffle3.wav'
 import dieThrow1 from '../assets/sounds/dieThrow1.wav'
 import dieThrow2 from '../assets/sounds/dieThrow2.wav'
 import dieThrow3 from '../assets/sounds/dieThrow3.wav'
+import { DarkContext } from '../App';
 
 
 function Dice(props) {
@@ -16,7 +17,8 @@ function Dice(props) {
     const [popup, setPopup] = useState(false)
     const [popupAdd, setPopupAdd] = useState(false)
     const [popupRemove, setPopupRemove] = useState(false)
-    // const [mute, setMute] = useState(false)
+    
+    const darkMode = useContext(DarkContext)
 
     const [uniqueDice, setUniqueDice] = useState({})
 
@@ -149,7 +151,8 @@ function Dice(props) {
         return (
             <Button 
                 onClick={() => {add ? addDice(value) : removeDice(value)}} 
-                disabled={add ? false : !uniqueDice[`${value}`]} 
+                disabled={add ? false : !uniqueDice[`${value}`]}
+                inverted={darkMode} 
             >
                 <i className={`dice df-d${value}-${value}`}></i>{uniqueDice[`${value}`] ? uniqueDice[`${value}`] : 0}
             </Button>
@@ -166,13 +169,13 @@ function Dice(props) {
     }, [rolling])
     
     return (
-        <div className="toolContainer">
-            <Header size="medium" dividing>
+        <div className={`toolContainer ${darkMode ? "darkMode" : null}`}>
+            <Header size="medium" dividing inverted={darkMode} >
                 <Icon name="cube" />
                 <Header.Content>Dice</Header.Content>
                 <Icon name={props.mute ? "volume off" : "volume up"} color={props.mute ? "red" : "green"} className="toolStatus" />
             </Header>
-            <Icon name="delete" onClick={props.delete} />
+            <Icon name="delete" onClick={props.delete} inverted={darkMode} />
             <div className="diceContainer">
                 {dice.map((e, i) => {
                     return (
@@ -181,16 +184,16 @@ function Dice(props) {
                             duration="500"
                             visible={!rolling}
                         >
-                            <i className={`dice df-d${e[0]}-${e[1]}`} key={`${i}-${e[1]}`}></i>
+                            <i className={`dice df-d${e[0]}-${e[1]} ${darkMode ? "darkMode" : null}`} key={`${i}-${e[1]}`}></i>
                         </Transition>
                     )
                 })}
             </div>
             <Button.Group>
-                <Button icon="shuffle" content="Roll" onClick={rollDice} disabled={rolling || dice.length === 0} />
+                <Button icon="shuffle" content="Roll" onClick={rollDice} disabled={rolling || dice.length === 0} inverted={darkMode} />
                 <Popup
                     trigger={
-                        <Button icon="add" disabled={rolling} />
+                        <Button icon="add" disabled={rolling} inverted={darkMode} />
                     }
                     content={
                         <>
@@ -211,10 +214,11 @@ function Dice(props) {
                     onClose={() => setPopupAdd(false)}
                     position='bottom center'
                     open={popupAdd}
+                    inverted={darkMode}
                 />
                 <Popup
                     trigger={
-                        <Button icon="minus" disabled={dice.length === 0 || rolling} />
+                        <Button icon="minus" disabled={dice.length === 0 || rolling} inverted={darkMode} />
                     }
                     content={
                         <>
@@ -235,21 +239,23 @@ function Dice(props) {
                     onClose={() => setPopupRemove(false)}
                     position='bottom right'
                     open={popupRemove}
+                    inverted={darkMode}
                 />
             </Button.Group>
             <Button.Group>
-                <Button icon="sort" content="Sort" onClick={sortDice} disabled={rolling} />
-                <Button icon="calculator" content={sum ? sum : ""} onClick={displaySum} disabled={rolling} />
+                <Button icon="sort" content="Sort" onClick={sortDice} disabled={rolling} inverted={darkMode} />
+                <Button icon="calculator" content={sum ? sum : ""} onClick={displaySum} disabled={rolling} inverted={darkMode} />
                 <Popup
                     trigger={
-                        <Button icon="undo" content="Clear" disabled={rolling} />
+                        <Button icon="undo" content="Clear" disabled={rolling} inverted={darkMode} />
                     }
-                    content={<Button color='red' content='Clear Dice?' onClick={clearDice}  />}
+                    content={<Button color='red' content='Clear Dice?' onClick={clearDice} inverted={darkMode}  />}
                     on='click'
                     onOpen={() => setPopup(true)}
                     onClose={() => setPopup(false)}
                     position='top center'
                     open={popup}
+                    inverted={darkMode}
                 />
             </Button.Group>
         </div>

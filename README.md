@@ -39,7 +39,8 @@ An all in one app with multiple components that can be added based on the board 
     - [ ] Multiple sets of toolkits
 - [ ] Lock to prevent deleting components
 - [x] Mute Sounds (when implemented)
-- [ ] Dark Mode
+- [x] Dark Mode
+- [x] Grid Layout
 - [ ] Accordion for each component (shrinking it?)
 - [ ] Mobile UI/UX Optimization (size/render/accessing each component)
     - sidebar menu?

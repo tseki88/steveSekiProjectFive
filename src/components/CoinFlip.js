@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Header, Button, Popup, Transition, Icon } from 'semantic-ui-react';
 import coinSound from '../assets/sounds/coin.mp3';
+import { DarkContext } from '../App';
 
 function CoinFlip(props) {
+    const darkMode = useContext(DarkContext)
+
     const [coin, setCoin] = useState([[2]])
     const [rolling, setRolling] = useState(false)
     const [sum, setSum] = useState("Calc")
@@ -80,13 +83,13 @@ function CoinFlip(props) {
     }, [rolling])
     
     return (
-        <div className="toolContainer">
-            <Header size="medium" dividing>
+        <div className={`toolContainer ${darkMode ? "darkMode" : null}`}>
+            <Header size="medium" dividing inverted={darkMode} >
                 <Icon name="bitcoin" />
                 <Header.Content>Coin</Header.Content>
                 <Icon name={props.mute ? "volume off" : "volume up"} color={props.mute ? "red" : "green"} className="toolStatus" />
             </Header>
-            <Icon name="delete" onClick={props.delete} />
+            <Icon name="delete" onClick={props.delete} inverted={darkMode} />
             <div className="diceContainer">
                 {coin.map((e, i) => {
                     return (
@@ -95,28 +98,29 @@ function CoinFlip(props) {
                             duration="500"
                             visible={!rolling}
                         >
-                            <i className={`dice df-d2-${e}`} key={`${i}-${e}`}></i>
+                            <i className={`dice df-d2-${e} ${darkMode ? "darkMode" : null}`} key={`${i}-${e}`}></i>
                         </Transition>
                     )
                 })}
             </div>
             <Button.Group>
-                <Button icon="shuffle" content="Flip" onClick={rollCoin} disabled={rolling || coin.length === 0} />
-                <Button icon="add" onClick={addCoin} disabled={rolling} />
-                <Button icon="minus" onClick={removeCoin} disabled={coin.length === 0 || rolling} />
+                <Button icon="shuffle" content="Flip" onClick={rollCoin} disabled={rolling || coin.length === 0} inverted={darkMode} />
+                <Button icon="add" onClick={addCoin} disabled={rolling} inverted={darkMode} />
+                <Button icon="minus" onClick={removeCoin} disabled={coin.length === 0 || rolling} inverted={darkMode} />
             </Button.Group>
             <Button.Group>
-                <Button icon="calculator" content={sum ? sum : ""} onClick={displaySum} disabled={rolling} />
+                <Button icon="calculator" content={sum ? sum : ""} onClick={displaySum} disabled={rolling} inverted={darkMode} />
                 <Popup
                     trigger={
-                        <Button icon="undo" content="Clear" disabled={rolling} />
+                        <Button icon="undo" content="Clear" disabled={rolling} inverted={darkMode} />
                     }
-                    content={<Button color='red' content='Clear Coin?' onClick={clearCoin}  />}
+                    content={<Button color='red' content='Clear Coin?' onClick={clearCoin} inverted={darkMode}  />}
                     on='click'
                     onOpen={() => setPopup(true)}
                     onClose={() => setPopup(false)}
                     position='top center'
                     open={popup}
+                    inverted={darkMode}
                 />
             </Button.Group>
         </div>

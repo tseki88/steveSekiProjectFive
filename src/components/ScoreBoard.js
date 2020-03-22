@@ -1,10 +1,12 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import firebase from '../firebase';
 import { Header, Button, Table, Icon, Popup, Input, Loader, Dimmer, Segment, Placeholder } from 'semantic-ui-react';
+import { DarkContext } from '../App';
 
 function ScoreBoard(props) {
     const {Row, HeaderCell, Body, Cell, Footer} = Table
-
+    
+    const darkMode = useContext(DarkContext)
     const [players, setPlayers] = useState([""]);
     const [scoreTypes, setScoreTypes] = useState([
         {
@@ -122,7 +124,7 @@ function ScoreBoard(props) {
     const renderPlayers = (
         players.map((e, i) => {
             return (
-                <HeaderCell key={i}>
+                <HeaderCell key={i} >
                     {
                     edit
                     ?
@@ -137,7 +139,8 @@ function ScoreBoard(props) {
                                 icon:"delete", 
                                 onClick:() => confirmRemove("player",i)
                             }}
-                            labelPosition="right corner"    
+                            labelPosition="right corner"   
+                            inverted={darkMode}
                         />
                         :
                         <Input 
@@ -150,6 +153,7 @@ function ScoreBoard(props) {
                                 color:"red", 
                                 onClick: () => removePlayer(i)
                             }}
+                            inverted={darkMode}
                         />
                     :
                     <Input 
@@ -160,6 +164,7 @@ function ScoreBoard(props) {
                         onChange={(event) => {
                             nameHandler(event, i)
                         }}
+                        inverted={darkMode}
                     />
                     }   
                 </HeaderCell>
@@ -188,7 +193,8 @@ function ScoreBoard(props) {
                                 icon:"delete", 
                                 onClick:() => confirmRemove("score",catInd)
                             }}
-                            labelPosition="right corner"    
+                            labelPosition="right corner" 
+                            inverted={darkMode}
                         />
                         :
                         <Input 
@@ -201,6 +207,7 @@ function ScoreBoard(props) {
                                 color:"red", 
                                 onClick: () => removeScoreCategory(catInd)
                             }}
+                            inverted={darkMode}
                         />
                     :
                         <Input 
@@ -210,7 +217,8 @@ function ScoreBoard(props) {
                             fluid
                             onChange={(event) => {
                                 scoreTypeHandler(event, catInd)
-                            }}    
+                            }}
+                            inverted={darkMode}
                         />
                     }   
                     </HeaderCell>
@@ -223,6 +231,7 @@ function ScoreBoard(props) {
                                 fluid
                                 onChange={(event) => {
                                     changeHandler(event,catInd,i)}}
+                                inverted={darkMode}
                                 />
                         </Cell>
                         )
@@ -285,20 +294,20 @@ function ScoreBoard(props) {
     },[])
 
     return (
-        <div className="toolContainer scoreContainer">
-            <Header size="medium" icon="table" content="Score Card" dividing />
-            <Icon name="delete" onClick={props.delete} />
+        <div className={`toolContainer scoreContainer ${darkMode ? "darkMode" : null}`}>
+            <Header size="medium" icon="table" content="Score Card" dividing inverted={darkMode} />
+            <Icon name="delete" onClick={props.delete} inverted={darkMode} />
             {
             loading 
             ? 
             <Segment>
             <Dimmer active>
-                <Loader content="Loading" /> 
+                <Loader content="Loading" inverted={darkMode} /> 
             </Dimmer>
             <Placeholder style={{ height: 200, width: 300 }} />
             </Segment>
             : 
-            <Table definition selectable unstackable columns="3" singleLine >
+            <Table definition selectable unstackable columns="3" singleLine inverted={darkMode} >
                 <Table.Header>
                     <Row>
                         <HeaderCell></HeaderCell>
@@ -316,6 +325,7 @@ function ScoreBoard(props) {
                                 content="Total"
                                 onClick={() => setTotal(!total)}
                                 fluid 
+                                inverted={darkMode}
                             />
                         </Cell>
                         {renderTotals}
@@ -323,25 +333,30 @@ function ScoreBoard(props) {
                 </Footer>
             </Table>
             }
-            <Button.Group compact>
+            <Button.Group compact >
                 <Button 
                     icon={edit ? "unlock" : "lock"} 
                     active={!edit}
                     content={edit ? "Lock Table" : "Edit Table"} 
                     onClick={editToggle} 
+                    inverted={darkMode}
                 />
-                <Button icon="add user" content="Player" onClick={addPlayer} disabled={!edit} />
-                <Button icon="add" content="Row" onClick={addScore} disabled={!edit} />
+                <Button icon="add user" content="Player" onClick={addPlayer} disabled={!edit}
+                inverted={darkMode} />
+                <Button icon="add" content="Row" onClick={addScore} disabled={!edit}
+                inverted={darkMode} />
                 <Popup
                     trigger={
-                        <Button icon="undo" content="Reset" disabled={!edit} />
+                        <Button icon="undo" content="Reset" disabled={!edit}
+                        inverted={darkMode} />
                     }
-                    content={<Button color='red' content='Clear?' onClick={resetBoard}  />}
+                    content={<Button color='red' content='Clear?' onClick={resetBoard} inverted={darkMode} />}
                     on='click'
                     onOpen={() => setClearPopup(true)}
                     onClose={() => setClearPopup(false)}
                     position='top center'
                     open={clearPopup}
+                    inverted={darkMode}
                 />
             </Button.Group>
         </div>

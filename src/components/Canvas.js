@@ -1,5 +1,6 @@
-import React, {useState, useEffect, useRef, useCallback} from 'react'
+import React, {useState, useEffect, useRef, useCallback, useContext} from 'react'
 import { Header, Button, Icon, Input, Popup } from 'semantic-ui-react';
+import { DarkContext } from '../App';
 
 function Canvas(props) {
     const [mousePosition, setMousePosition] = useState();
@@ -8,6 +9,7 @@ function Canvas(props) {
     const [popup, setPopup] = useState(false)
     const canvasRef = useRef(null)
     const canvasWrapper = useRef(null)
+    const darkMode = useContext(DarkContext)
     
     const colorHandler = (event) => {
         setColor(event.target.value)
@@ -140,9 +142,9 @@ function Canvas(props) {
     }, [exitPaint]);
 
     return (
-        <div className="toolContainer">
-            <Header size="medium" icon="pencil" content="Canvas" dividing />
-            <Icon name="delete" onClick={props.delete} />     
+        <div className={`toolContainer ${darkMode ? "darkMode" : null}`}>
+            <Header size="medium" icon="pencil" content="Canvas" dividing inverted={darkMode} />
+            <Icon name="delete" onClick={props.delete} inverted={darkMode} />     
             <div className="canvasContainer" ref={canvasWrapper}>
                 <canvas
                     ref={canvasRef}
@@ -150,7 +152,7 @@ function Canvas(props) {
                     />
                 </div>
             <div>
-            <Input type="color" list="colorList" value={color} onChange={(e) => colorHandler(e)} />
+            <Input type="color" list="colorList" value={color} onChange={(e) => colorHandler(e)} inverted={darkMode} />
             <datalist id="colorList">
                 <option value="#ff0000" />
                 <option value="#000000" />
@@ -159,14 +161,15 @@ function Canvas(props) {
             </datalist>
             <Popup
                     trigger={
-                        <Button icon="erase" content="Clear" />
+                        <Button icon="erase" content="Clear" inverted={darkMode} />
                     }
-                    content={<Button color='red' content='Clear Canvas?' onClick={clearCanvas}  />}
+                    content={<Button color='red' content='Clear Canvas?' onClick={clearCanvas} inverted={darkMode} />}
                     on='click'
                     onOpen={() => setPopup(true)}
                     onClose={() => setPopup(false)}
                     position='top center'
                     open={popup}
+                    inverted={darkMode}
                 />
             </div>
         </div>
