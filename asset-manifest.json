@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/steveSekiProjectFive/static/css/main.2246f57f.chunk.css",
+    "main.css": "/steveSekiProjectFive/static/css/main.966c7fef.chunk.css",
     "main.js": "/steveSekiProjectFive/static/js/main.72326bcf.chunk.js",
     "main.js.map": "/steveSekiProjectFive/static/js/main.72326bcf.chunk.js.map",
     "runtime-main.js": "/steveSekiProjectFive/static/js/runtime-main.92f756c5.js",
@@ -9,10 +9,10 @@
     "static/js/2.44c148de.chunk.js": "/steveSekiProjectFive/static/js/2.44c148de.chunk.js",
     "static/js/2.44c148de.chunk.js.map": "/steveSekiProjectFive/static/js/2.44c148de.chunk.js.map",
     "index.html": "/steveSekiProjectFive/index.html",
-    "precache-manifest.3dabd8c426ae73f83cf0581d03ccff4e.js": "/steveSekiProjectFive/precache-manifest.3dabd8c426ae73f83cf0581d03ccff4e.js",
+    "precache-manifest.16e68986a86f5f4fa9571ac2a8502ee4.js": "/steveSekiProjectFive/precache-manifest.16e68986a86f5f4fa9571ac2a8502ee4.js",
     "service-worker.js": "/steveSekiProjectFive/service-worker.js",
     "static/css/2.5703e28c.chunk.css.map": "/steveSekiProjectFive/static/css/2.5703e28c.chunk.css.map",
-    "static/css/main.2246f57f.chunk.css.map": "/steveSekiProjectFive/static/css/main.2246f57f.chunk.css.map",
+    "static/css/main.966c7fef.chunk.css.map": "/steveSekiProjectFive/static/css/main.966c7fef.chunk.css.map",
     "static/media/alarm.mp3": "/steveSekiProjectFive/static/media/alarm.91de772f.mp3",
     "static/media/semantic.min.css": "/steveSekiProjectFive/static/media/outline-icons.ef60a4f6.woff",
     "static/media/coin.mp3": "/steveSekiProjectFive/static/media/coin.e1a04d9f.mp3",
@@ -29,7 +29,7 @@
     "static/js/runtime-main.92f756c5.js",
     "static/css/2.5703e28c.chunk.css",
     "static/js/2.44c148de.chunk.js",
-    "static/css/main.2246f57f.chunk.css",
+    "static/css/main.966c7fef.chunk.css",
     "static/js/main.72326bcf.chunk.js"
   ]
 }
