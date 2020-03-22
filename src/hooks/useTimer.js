@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useCallback} from 'react'
 import alarm from '../assets/sounds/alarm.mp3'
 
 function useTimer(increment, mute = null) {
@@ -36,7 +36,7 @@ function useTimer(increment, mute = null) {
         })
     },[alert])
     
-    const addTimerValue = (value) => {
+    const addTimerValue = useCallback((value) => {
         if (!increment) {
             setMaxTime(prevTime => {
                 return prevTime + value
@@ -46,7 +46,7 @@ function useTimer(increment, mute = null) {
         setTime(prevTime => {
             return prevTime + value
         })
-    }
+    },[time, maxTime])
     
     
     useEffect(() => {

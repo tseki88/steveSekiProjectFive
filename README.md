@@ -26,7 +26,8 @@ An all in one app with multiple components that can be added based on the board 
     - 03/17/2020
 - Scoreboard
     - 03/18/2020
-    - temporary limit of 1 due to shared access and only single save point
+    <!-- - temporary limit of 1 due to shared access and only single save point -->
+    - temporarily unlinked backend
 - Canvas
     - 03/19/2020
 

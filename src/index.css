@@ -65,14 +65,12 @@ header {
   align-items: center;
   box-shadow: 0 0 5px white;
   /* position: fixed; */
-  z-index: 20
+  z-index: 200
 }
 
-.pushable {
+.pushable,
+.pusher {
   min-height: 87.5vh;
-  /* position: fixed; */
-  /* position: sticky;
-  top: 0; */
 }
 
 .toolStatus {
@@ -106,6 +104,7 @@ header {
   grid-template-columns: repeat(5,1fr);
   grid-auto-flow: dense;
   max-width: 100%;
+  min-height: 80vh;
   padding: 10px 10px 150px;
   grid-gap: 6px;
 }
@@ -119,6 +118,8 @@ table {
 td {
   min-width: 80px;
   padding: 0 !important;
+  width: auto;
+  /* min-width: none; */
 }
 
 input[type="number"],
@@ -134,6 +135,7 @@ tfoot th {
 
 tr {
   text-align: center;
+  /* width: 100% */
 }
 
 .ui.inverted.definition.table tfoot:not(.full-width) th:first-child, .ui.inverted.definition.table thead:not(.full-width) th:first-child {
@@ -181,15 +183,12 @@ tfoot button.ui.fluid.button {
   padding: 15px;
   border-radius: 6px;
   margin: 2px;
-  /* min-width: 300px; */
-  /* max-width: 300px; */
   height: fit-content;
   grid-column-end: span 1;
+  width: 100%;
 }
 
 .scoreContainer {
-  /* width: 600px; */
-  /* max-width: 600px; */
   grid-column-end: span 2;
 }
 
@@ -327,6 +326,10 @@ canvas {
   color: rgba(255, 255, 255, 0.8)
 }
 
+.ui.inverted.popup {
+  box-shadow: 0 0 2px white;
+}
+
 .ui.inverted.button {
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8) inset !important;
 }
@@ -343,6 +346,7 @@ canvas {
   background-color: #2b2b2b;
   box-shadow: 0 0 3px #ccc;
 }
+
 
 
 /* Media Queries */
@@ -375,30 +379,33 @@ canvas {
 
   .componentAppender {
     margin-top: 30px;
+    padding-bottom: 0;
   }
 
   header {
-    padding: 0;
-    /* position: fixed; */
+    padding: 0 5px;
+    position: fixed;
     width: 100%;
+  }
+
+  .pushable:not(body) {
+    transform: none;
+  }
+  
+  .pushable:not(body) > .ui.sidebar,
+  .pushable:not(body) > .fixed,
+  .pushable:not(body) > .pusher:after {
+    position: fixed;
+    top: 4.5rem;
   }
 
   .toolContainer, .scoreContainer {
-    min-width: none;
-    /* max-width: none; */
-    width: 100%;
-    /* margin: 0.5rem 2rem; */
     padding: 1.6rem 1.4rem;
-  }
-
-  table {
-    display: block;
   }
 
   .buttonContainer {
     width: 100%;
   }
-
 }
 
 @media (max-width: 800px) {
@@ -406,33 +413,23 @@ canvas {
     width: 100%;
   }
 
-  td {
-    min-width: none;
-    width: auto;
-  }
-
   .flex {
     grid-template-columns: repeat(2,1fr);
   }
-
 }
 
 
 @media (max-width: 540px) {
-  /* body {
+  body {
     font-size: 12px;
-  } */
+  }
   
   .darkToggle {
     position: relative;
   }
 
-
-
   .toolContainer {
     grid-column-end: span 2;
   }
-
-
 }
 

@@ -97,6 +97,7 @@ function CoinFlip(props) {
                             animation="bounce"
                             duration="500"
                             visible={!rolling}
+                            key={i}
                         >
                             <i className={`dice df-d2-${e} ${darkMode ? "darkMode" : null}`} key={`${i}-${e}`}></i>
                         </Transition>
@@ -114,7 +115,7 @@ function CoinFlip(props) {
                     trigger={
                         <Button icon="undo" content="Clear" disabled={rolling} inverted={darkMode} />
                     }
-                    content={<Button color='red' content='Clear Coin?' onClick={clearCoin} inverted={darkMode}  />}
+                    content={<Button color='red' content='Clear Coin?' onClick={clearCoin}  />}
                     on='click'
                     onOpen={() => setPopup(true)}
                     onClose={() => setPopup(false)}

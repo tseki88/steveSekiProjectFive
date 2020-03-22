@@ -43,7 +43,7 @@ function TimerTwo(props) {
                     </Header>
                 }
                 content={
-                <Button content="Time's Up!" color="red" size="large" onClick={()=> setAlert(false)} inverted={darkMode} />}
+                <Button content="Time's Up!" color="red" size="large" onClick={()=> setAlert(false)} />}
                 position="bottom left"
                 open={alert}
                 inverted={darkMode}
