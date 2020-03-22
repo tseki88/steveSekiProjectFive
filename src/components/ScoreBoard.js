@@ -295,7 +295,7 @@ function ScoreBoard(props) {
 
     return (
         <div className={`toolContainer scoreContainer ${darkMode ? "darkMode" : null}`}>
-            <Header size="medium" icon="table" content="Score Card" dividing inverted={darkMode} />
+            <Header size="medium" icon="table" content="Score Board" dividing inverted={darkMode} />
             <Icon name="delete" onClick={props.delete} inverted={darkMode} />
             {
             loading 

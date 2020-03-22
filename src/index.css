@@ -27,6 +27,10 @@ code {
 
 
 /* Global */
+/* * {
+  font-size: 20px;
+} */
+
 body {
   background-color: #f7f7f7;
   min-height: 100vh;
@@ -60,6 +64,13 @@ header {
   justify-content: center;
   align-items: center;
   box-shadow: 0 0 5px white;
+  /* position: fixed; */
+  z-index: 20
+}
+
+.pushable {
+  min-height: 87.5vh;
+  position: fixed;
 }
 
 .toolStatus {
@@ -93,7 +104,7 @@ header {
   grid-template-columns: repeat(5,1fr);
   grid-auto-flow: dense;
   max-width: 100%;
-  padding: 10px;
+  padding: 10px 10px 30px;
   grid-gap: 6px;
 }
 
@@ -138,6 +149,7 @@ th input,
   padding: 0 !important;
   height: 3rem;
   font: inherit !important;
+  font-size: 1.2rem !important;
   font-weight: 800 !important;
   background-color: inherit !important;
   border-radius: none !important;
@@ -236,8 +248,19 @@ Add Score Type Button Icon */
   padding: 0 5px;
 }
 
+
+.ui.header > .icon {
+  font-size: 1.6rem;
+}
+
+
+
+.ui.labeled.icon.menu .item > .icon:not(.dropdown) {
+  font-size: 1.4rem !important;
+}
+
 h1 {
-  font-size: 1.8rem !important;
+  /* font-size: 2.2rem !important; */
   margin: 0 auto !important;
 }
 
@@ -327,10 +350,6 @@ canvas {
 }
 
 @media (max-width: 1280px) {
-  * {
-    font-size: 14px;
-  }
-
   .flex {
     grid-template-columns: repeat(4,1fr);
   }
@@ -342,7 +361,7 @@ canvas {
 
 @media (max-width: 980px) {
   h1 {
-    font-size: 1.4rem !important;
+    font-size: 1.2rem !important;
     padding: 10px 0 !important;
   }
   
@@ -357,7 +376,7 @@ canvas {
   .toolContainer, .scoreContainer {
     min-width: none;
     /* max-width: none; */
-    /* width: 100%; */
+    width: 100%;
     /* margin: 0.5rem 2rem; */
     padding: 1.6rem 1.4rem;
   }
@@ -390,9 +409,9 @@ canvas {
 
 
 @media (max-width: 540px) {
-  body {
+  /* body {
     font-size: 12px;
-  }
+  } */
   
   .darkToggle {
     position: relative;
