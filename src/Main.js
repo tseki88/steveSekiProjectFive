@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react';
-import {Sidebar, Segment, Menu, Button, Icon} from 'semantic-ui-react'
+import {Sidebar, Menu} from 'semantic-ui-react'
 import Container from './components/Container';
 import { DarkContext } from './App';
 
@@ -41,6 +41,8 @@ function Main(props) {
         }
     }
 
+
+
     return (
         <>
         <Sidebar.Pushable>
@@ -54,12 +56,17 @@ function Main(props) {
                 visible={props.visible}
                 width='thin'
             >
-                <Menu.Item icon="time" onClick={() => clickHandler("stopwatch")} />
-                <Menu.Item icon="hourglass" onClick={() => clickHandler("timer")} />
-                <Menu.Item icon="cube" onClick={() => clickHandler("dice")} />
-                <Menu.Item icon="bitcoin" onClick={() => clickHandler("coin")} />
-                <Menu.Item icon="pencil" onClick={() => clickHandler("canvas")} />
-                <Menu.Item content="max: 1 (temp)" icon="table" onClick={!boardLimit ? () => clickHandler("scoreboard") : null} />
+                <Menu.Item content="Stop Watch" icon="time" onClick={() => clickHandler("stopwatch")} />
+                <Menu.Item content="Timer" icon="hourglass" onClick={() => clickHandler("timer")} />
+                <Menu.Item content="Dice" icon="cube" onClick={() => clickHandler("dice")} />
+                <Menu.Item content="Coin" icon="bitcoin" onClick={() => clickHandler("coin")} />
+                <Menu.Item content="Canvas" icon="pencil" onClick={() => clickHandler("canvas")} />
+                <Menu.Item content="Score Board" icon="table" onClick={() => clickHandler("scoreboard")} />
+                {/* <Menu.Item content="Score Board (max-1 temp)" icon="table" onClick={!boardLimit ? () => clickHandler("scoreboard") : null} /> */}
+                {/* <Menu.Item name="Sign Out" icon="log out" active color="red" onClick={() => {
+                    props.setVisible(false)
+                    props.handleSignOut()
+                }} /> */}
             </Sidebar>
             <Sidebar.Pusher dimmed={props.visible}>
                 <Container tools={tools} setTools={setTools} checkLimit={checkLimit} />

@@ -163,7 +163,7 @@ function Canvas(props) {
                     trigger={
                         <Button icon="erase" content="Clear" inverted={darkMode} />
                     }
-                    content={<Button color='red' content='Clear Canvas?' onClick={clearCanvas} inverted={darkMode} />}
+                    content={<Button color='red' content='Clear Canvas?' onClick={clearCanvas} />}
                     on='click'
                     onOpen={() => setPopup(true)}
                     onClose={() => setPopup(false)}

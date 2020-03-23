@@ -1,18 +1,19 @@
-import React, {useState, useContext} from 'react';
-import {Button, Label, Sidebar, Menu, Icon, Segment, Header} from 'semantic-ui-react'
+import React, {useState, useCallback} from 'react';
+import {Button} from 'semantic-ui-react'
 import StopWatchTwo from './StopWatchTwo';
 import TimerTwo from './TimerTwo';
 import Dice from './Dice';
 import CoinFlip from './CoinFlip';
 import ScoreBoard from './ScoreBoard';
+import ScoreBoardUnlink from './ScoreBoardUnlink'
 import Canvas from './Canvas';
-import { DarkContext } from '../App';
+// import { DarkContext } from '../App';
 
 function Container (props) {
 
     const {tools, setTools, checkLimit} = props
 
-    const darkMode = useContext(DarkContext)
+    // const darkMode = useContext(DarkContext)
 
     // const [tools, setTools] = useState([
     //     {tool:"dice", id:"0"},
@@ -28,9 +29,9 @@ function Container (props) {
     // const [componentId, setComponentId] = useState(tools.length)
     const [mute, setMute] = useState(false)
 
-    const toggleMute = () => {
+    const toggleMute = useCallback(() => {
         setMute(!mute)
-    }
+    },[mute])
 
     // const clickHandler = (item) => {
     //     let updatedTools = [...tools, {tool: item, id: componentId}]
@@ -41,13 +42,13 @@ function Container (props) {
     //     checkLimit(updatedTools)
     // }
 
-    const removeTool = (id) => {
+    const removeTool = useCallback((id) => {
         let target = tools.findIndex(e => e.id === id)
         let updatedTools = [...tools]
         updatedTools.splice(target, 1);
         setTools(updatedTools);
         checkLimit(updatedTools)
-    }
+    },[tools])
 
     // const checkLimit = (updatedTools) => {
     //     const check = updatedTools.filter((e) => {
@@ -71,7 +72,7 @@ function Container (props) {
             case "coin":
                 return <CoinFlip key={id} delete={() => removeTool(id)} mute={mute} />
             case "scoreboard":
-                return <ScoreBoard key={id} delete={() => removeTool(id)} />
+                return <ScoreBoardUnlink key={id} delete={() => removeTool(id)} />
             case "canvas":
                 return <Canvas key={id} delete={() => removeTool(id)} />
             default:

@@ -1,9 +1,8 @@
 import React, {useState, useEffect, useContext} from 'react';
-import firebase from '../firebase';
-import { Header, Button, Table, Icon, Popup, Input, Loader, Dimmer, Segment, Placeholder } from 'semantic-ui-react';
+import { Header, Button, Table, Icon, Popup, Input} from 'semantic-ui-react';
 import { DarkContext } from '../App';
 
-function ScoreBoard(props) {
+function ScoreBoardUnlink(props) {
     const {Row, HeaderCell, Body, Cell, Footer} = Table
     
     const darkMode = useContext(DarkContext)
@@ -15,30 +14,30 @@ function ScoreBoard(props) {
         }
     ])
     const [confirmDelete, setConfirmDelete] = useState(null)
-    const [loading, setLoading] = useState(false)
+    // const [loading, setLoading] = useState(false)
     const [edit, setEdit] = useState(false)
     const [clearPopup, setClearPopup] = useState(false)
     const [total, setTotal] = useState(false)
-
-    const playerDbRef = firebase.database().ref("players");
-    const scoreTypeDbRef = firebase.database().ref("scoreTypes");
 
     const changeHandler = (event, catInd, scoreIndex) => {
         let updatedScore = [...scoreTypes]
         let newValue = event.target.value
         updatedScore[catInd]["scores"][scoreIndex] = newValue;
-        scoreTypeDbRef.set(updatedScore);
+        setScoreTypes(updatedScore)
     }
 
     const addPlayer = () => {
-        let newPlayerState = [...players, ""]
-        playerDbRef.set(newPlayerState)
+        // let newPlayerState = [...players, ""]
+        setPlayers(prevState => {
+            return [...prevState, ""]
+        })
 
         let newScoreState = [...scoreTypes]
         newScoreState.forEach((e) => {
             e.scores.push(0)
         })
-        scoreTypeDbRef.set(newScoreState)
+        // scoreTypeDbRef.set(newScoreState)
+        setScoreTypes(newScoreState)
         setConfirmDelete(null)
     }
 
@@ -51,13 +50,15 @@ function ScoreBoard(props) {
     const removePlayer = (index) => {
         let newPlayerState = [...players]
         newPlayerState.splice(index, 1)
-        playerDbRef.set(newPlayerState)
+        // playerDbRef.set(newPlayerState)
+        setPlayers(newPlayerState)
 
         let newScoreState = [...scoreTypes]
         newScoreState.forEach((e) => {
             e["scores"].splice(index,1)
         })
-        scoreTypeDbRef.set(newScoreState)
+        // scoreTypeDbRef.set(newScoreState)
+        setScoreTypes(newScoreState)
         setConfirmDelete(null)
     }
 
@@ -73,14 +74,16 @@ function ScoreBoard(props) {
         }
         let newScoreState = [...scoreTypes, newScoreObject]
         
-        scoreTypeDbRef.set(newScoreState)
+        // scoreTypeDbRef.set(newScoreState)
+        setScoreTypes(newScoreState)
         setConfirmDelete(null)
     }
 
     const removeScoreCategory = (index) => {
         let newScores = [...scoreTypes];
         newScores.splice(index,1);
-        scoreTypeDbRef.set(newScores)
+        // scoreTypeDbRef.set(newScores)
+        setScoreTypes(newScores)
         setConfirmDelete(null)
     }
 
@@ -90,9 +93,9 @@ function ScoreBoard(props) {
     }
 
     const resetBoard = () => {
-        const resetPlayers = [
-            ""
-        ]
+        // const resetPlayers = [
+        //     ""
+        // ]
         
         const resetScores = [
             {
@@ -101,8 +104,10 @@ function ScoreBoard(props) {
             }
         ]
         
-        playerDbRef.set(resetPlayers);
-        scoreTypeDbRef.set(resetScores);
+        setPlayers([""])
+        // playerDbRef.set(resetPlayers);
+        // scoreTypeDbRef.set(resetScores);
+        setScoreTypes(resetScores)
         setClearPopup(false)
         setConfirmDelete(null)
     }
@@ -110,13 +115,15 @@ function ScoreBoard(props) {
     const nameHandler = (event, index) => {
         let updatedPlayers = [...players]
         updatedPlayers[index] = event.target.value;
-        playerDbRef.set(updatedPlayers)
+        // playerDbRef.set(updatedPlayers)
+        setPlayers(updatedPlayers)
     }
 
     const scoreTypeHandler = (event, index) => {
         let updatedScore = [...scoreTypes]
         updatedScore[index]["category"] = event.target.value;
-        scoreTypeDbRef.set(updatedScore)
+        // scoreTypeDbRef.set(updatedScore)
+        setScoreTypes(updatedScore)
     }
 
     const renderPlayers = (
@@ -264,50 +271,40 @@ function ScoreBoard(props) {
     //     })
     // },[])
 
-    useEffect(() => {
-        setLoading(true)
-        const playerDbRef = firebase.database().ref("players");
-        const scoreTypeDbRef = firebase.database().ref("scoreTypes");
+    // useEffect(() => {
+    //     setLoading(true)
+    //     const playerDbRef = firebase.database().ref("players");
+    //     const scoreTypeDbRef = firebase.database().ref("scoreTypes");
         
         
-        playerDbRef.on("value", (response) => {
-            const newState = [];
-            response.forEach((e) => {
-                newState.push(e.val())
-            })
-            setPlayers(newState)
-            // setLoading(false)
-        })
+    //     playerDbRef.on("value", (response) => {
+    //         const newState = [];
+    //         response.forEach((e) => {
+    //             newState.push(e.val())
+    //         })
+    //         setPlayers(newState)
+    //         // setLoading(false)
+    //     })
         
-        scoreTypeDbRef.on("value", (response) => {
-            const newState = [];
-            response.forEach((e) => {
-                newState.push(e.val())
-            })
-            setScoreTypes(newState)
-            setLoading(false)
-        })
+    //     scoreTypeDbRef.on("value", (response) => {
+    //         const newState = [];
+    //         response.forEach((e) => {
+    //             newState.push(e.val())
+    //         })
+    //         setScoreTypes(newState)
+    //         setLoading(false)
+    //     })
 
-        return(() => {
-            // scoreTypeDbRef()
-        })
-    },[])
+    //     return(() => {
+    //         // scoreTypeDbRef()
+    //     })
+    // },[])
 
     return (
         <div className={`toolContainer scoreContainer ${darkMode ? "darkMode" : null}`}>
             <Header size="medium" icon="table" content="Score Board" dividing inverted={darkMode} />
-            <Icon name="delete" onClick={props.delete} inverted={darkMode} />
-            {
-            loading 
-            ? 
-            <Segment>
-            <Dimmer active>
-                <Loader content="Loading" inverted={darkMode} /> 
-            </Dimmer>
-            <Placeholder style={{ height: 200, width: 300 }} />
-            </Segment>
-            : 
-            <Table definition selectable unstackable columns="3" singleLine inverted={darkMode} >
+            <Icon name="delete" onClick={props.delete} inverted={darkMode} /> 
+            <Table definition selectable unstackable columns="4" singleLine inverted={darkMode} >
                 <Table.Header>
                     <Row>
                         <HeaderCell></HeaderCell>
@@ -332,7 +329,6 @@ function ScoreBoard(props) {
                     </Row>
                 </Footer>
             </Table>
-            }
             <Button.Group compact >
                 <Button 
                     icon={edit ? "unlock" : "lock"} 
@@ -363,4 +359,4 @@ function ScoreBoard(props) {
     )
 }
 
-export default ScoreBoard
+export default ScoreBoardUnlink

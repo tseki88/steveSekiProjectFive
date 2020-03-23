@@ -183,6 +183,7 @@ function Dice(props) {
                             animation="tada"
                             duration="500"
                             visible={!rolling}
+                            key={i}
                         >
                             <i className={`dice df-d${e[0]}-${e[1]} ${darkMode ? "darkMode" : null}`} key={`${i}-${e[1]}`}></i>
                         </Transition>
@@ -249,7 +250,7 @@ function Dice(props) {
                     trigger={
                         <Button icon="undo" content="Clear" disabled={rolling} inverted={darkMode} />
                     }
-                    content={<Button color='red' content='Clear Dice?' onClick={clearDice} inverted={darkMode}  />}
+                    content={<Button color='red' content='Clear Dice?' onClick={clearDice}  />}
                     on='click'
                     onOpen={() => setPopup(true)}
                     onClose={() => setPopup(false)}
