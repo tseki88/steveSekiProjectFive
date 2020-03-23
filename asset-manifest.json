@@ -1,18 +1,19 @@
 {
   "files": {
-    "main.css": "/steveSekiProjectFive/static/css/main.e8877da7.chunk.css",
-    "main.js": "/steveSekiProjectFive/static/js/main.19c137aa.chunk.js",
-    "main.js.map": "/steveSekiProjectFive/static/js/main.19c137aa.chunk.js.map",
-    "runtime-main.js": "/steveSekiProjectFive/static/js/runtime-main.92f756c5.js",
-    "runtime-main.js.map": "/steveSekiProjectFive/static/js/runtime-main.92f756c5.js.map",
-    "static/css/2.5703e28c.chunk.css": "/steveSekiProjectFive/static/css/2.5703e28c.chunk.css",
-    "static/js/2.44c148de.chunk.js": "/steveSekiProjectFive/static/js/2.44c148de.chunk.js",
-    "static/js/2.44c148de.chunk.js.map": "/steveSekiProjectFive/static/js/2.44c148de.chunk.js.map",
+    "main.css": "/steveSekiProjectFive/static/css/main.10e2ee28.chunk.css",
+    "main.js": "/steveSekiProjectFive/static/js/main.935fc641.chunk.js",
+    "main.js.map": "/steveSekiProjectFive/static/js/main.935fc641.chunk.js.map",
+    "runtime-main.js": "/steveSekiProjectFive/static/js/runtime-main.a3ff265c.js",
+    "runtime-main.js.map": "/steveSekiProjectFive/static/js/runtime-main.a3ff265c.js.map",
+    "static/css/2.39f23474.chunk.css": "/steveSekiProjectFive/static/css/2.39f23474.chunk.css",
+    "static/js/2.47e96bec.chunk.js": "/steveSekiProjectFive/static/js/2.47e96bec.chunk.js",
+    "static/js/2.47e96bec.chunk.js.map": "/steveSekiProjectFive/static/js/2.47e96bec.chunk.js.map",
     "index.html": "/steveSekiProjectFive/index.html",
-    "precache-manifest.9c32611b7a901c1179dafe8c60b966e0.js": "/steveSekiProjectFive/precache-manifest.9c32611b7a901c1179dafe8c60b966e0.js",
+    "precache-manifest.89b33d57939aeffd123bf146e42b3976.js": "/steveSekiProjectFive/precache-manifest.89b33d57939aeffd123bf146e42b3976.js",
     "service-worker.js": "/steveSekiProjectFive/service-worker.js",
-    "static/css/2.5703e28c.chunk.css.map": "/steveSekiProjectFive/static/css/2.5703e28c.chunk.css.map",
-    "static/css/main.e8877da7.chunk.css.map": "/steveSekiProjectFive/static/css/main.e8877da7.chunk.css.map",
+    "static/css/2.39f23474.chunk.css.map": "/steveSekiProjectFive/static/css/2.39f23474.chunk.css.map",
+    "static/css/main.10e2ee28.chunk.css.map": "/steveSekiProjectFive/static/css/main.10e2ee28.chunk.css.map",
+    "static/js/2.47e96bec.chunk.js.LICENSE.txt": "/steveSekiProjectFive/static/js/2.47e96bec.chunk.js.LICENSE.txt",
     "static/media/alarm.mp3": "/steveSekiProjectFive/static/media/alarm.91de772f.mp3",
     "static/media/semantic.min.css": "/steveSekiProjectFive/static/media/outline-icons.ef60a4f6.woff",
     "static/media/coin.mp3": "/steveSekiProjectFive/static/media/coin.e1a04d9f.mp3",
@@ -26,10 +27,10 @@
     "static/media/dieThrow3.wav": "/steveSekiProjectFive/static/media/dieThrow3.f4755e95.wav"
   },
   "entrypoints": [
-    "static/js/runtime-main.92f756c5.js",
-    "static/css/2.5703e28c.chunk.css",
-    "static/js/2.44c148de.chunk.js",
-    "static/css/main.e8877da7.chunk.css",
-    "static/js/main.19c137aa.chunk.js"
+    "static/js/runtime-main.a3ff265c.js",
+    "static/css/2.39f23474.chunk.css",
+    "static/js/2.47e96bec.chunk.js",
+    "static/css/main.10e2ee28.chunk.css",
+    "static/js/main.935fc641.chunk.js"
   ]
 }
