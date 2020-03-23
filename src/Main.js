@@ -63,10 +63,10 @@ function Main(props) {
                 <Menu.Item content="Canvas" icon="pencil" onClick={() => clickHandler("canvas")} />
                 <Menu.Item content="Score Board" icon="table" onClick={() => clickHandler("scoreboard")} />
                 {/* <Menu.Item content="Score Board (max-1 temp)" icon="table" onClick={!boardLimit ? () => clickHandler("scoreboard") : null} /> */}
-                <Menu.Item name="Sign Out" icon="log out" active color="red" onClick={() => {
+                {/* <Menu.Item name="Sign Out" icon="log out" active color="red" onClick={() => {
                     props.setVisible(false)
                     props.handleSignOut()
-                }} />
+                }} /> */}
             </Sidebar>
             <Sidebar.Pusher dimmed={props.visible}>
                 <Container tools={tools} setTools={setTools} checkLimit={checkLimit} />

@@ -304,7 +304,7 @@ function ScoreBoardUnlink(props) {
         <div className={`toolContainer scoreContainer ${darkMode ? "darkMode" : null}`}>
             <Header size="medium" icon="table" content="Score Board" dividing inverted={darkMode} />
             <Icon name="delete" onClick={props.delete} inverted={darkMode} /> 
-            <Table definition selectable unstackable columns="5" singleLine inverted={darkMode} >
+            <Table definition selectable unstackable columns="4" singleLine inverted={darkMode} >
                 <Table.Header>
                     <Row>
                         <HeaderCell></HeaderCell>

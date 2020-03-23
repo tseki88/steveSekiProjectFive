@@ -9,80 +9,80 @@ import 'firebase/auth';
 
 export const DarkContext = React.createContext()
 
-const uiConfig = {
-  signInFlow: 'popup',
-  signInOptions: [
-      {
-          provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-          customParameters: {
-              prompt: 'select_account'
-          },
-      },
-      firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID,
-  ],
-};
+// const uiConfig = {
+//   signInFlow: 'popup',
+//   signInOptions: [
+//       {
+//           provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+//           customParameters: {
+//               prompt: 'select_account'
+//           },
+//       },
+//       firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID,
+//   ],
+// };
 
 function App() {
   const [darkMode, setDarkMode] = useState(false)
   const [visible, setVisible] = useState(false)
-  const [loggedIn, setLoggedIn] = useState(false)
-  const [userId, setUserId] = useState('')
-  const [userName, setUserName] = useState('')
-  const [loading, setLoading] = useState(false)
+  // const [loggedIn, setLoggedIn] = useState(false)
+  // const [userId, setUserId] = useState('')
+  // const [userName, setUserName] = useState('')
+  // const [loading, setLoading] = useState(false)
 
 
-  useEffect(() => {
-    setLoading(true)
-    const authCheck = firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-          setLoggedIn(true)
-          if (user.isAnonymous) {
-            setUserName("Guest")
-          } else {
-            setUserName(user.displayName)
-            setUserId(user.uid)
-          }
-      }
-      setLoading(false)
-    });
+  // useEffect(() => {
+  //   setLoading(true)
+  //   const authCheck = firebase.auth().onAuthStateChanged((user) => {
+  //     if (user) {
+  //         setLoggedIn(true)
+  //         if (user.isAnonymous) {
+  //           setUserName("Guest")
+  //         } else {
+  //           setUserName(user.displayName)
+  //           setUserId(user.uid)
+  //         }
+  //     }
+  //     setLoading(false)
+  //   });
 
-    return (() => {
-      authCheck()
-      firebase.auth().signOut();
-    })
-  }, [])
+  //   return (() => {
+  //     authCheck()
+  //     firebase.auth().signOut();
+  //   })
+  // }, [])
 
-  // const setAuthentication = (userInfo) => {
-  //   setUserId(userInfo.uid)
+  // // const setAuthentication = (userInfo) => {
+  // //   setUserId(userInfo.uid)
+  // // }
+
+  // const handleSignOut = () => {
+  //   firebase.auth().signOut();
+  //   setLoggedIn(false)
+  //   setUserId('')
+  //   setUserName('')
   // }
 
-  const handleSignOut = () => {
-    firebase.auth().signOut();
-    setLoggedIn(false)
-    setUserId('')
-    setUserName('')
-  }
-
-  useEffect(() => {
-    firebase.auth().onAuthStateChanged(user => {
-      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
-        .then(function () {
-          if (user) {
-            if (user.isAnonymous) {
-              setUserName("Guest")
-            } else {
-              setUserName(user.displayName)
-              setUserId(user.uid)
-            }
-          }
-          return true;
-        })
-    })
-  },[])
+  // useEffect(() => {
+  //   firebase.auth().onAuthStateChanged(user => {
+  //     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+  //       .then(function () {
+  //         if (user) {
+  //           if (user.isAnonymous) {
+  //             setUserName("Guest")
+  //           } else {
+  //             setUserName(user.displayName)
+  //             setUserId(user.uid)
+  //           }
+  //         }
+  //         return true;
+  //       })
+  //   })
+  // },[])
 
   return (
     <div className={`app ${darkMode ? "darkMode" : null}`}>
-      {
+      {/* {
         loading
         ?
         <Segment>
@@ -95,10 +95,10 @@ function App() {
           ?
           <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
           :
-          <>
+          <> */}
             <header>
               <Button content="+" compact onClick={() => {setVisible(!visible)}} inverted={darkMode} />
-        <Header as="h1" inverted>{userName}'s Board Game Toolkit</Header>
+        <Header as="h1" inverted>Board Game Toolkit</Header>
               <div className="darkToggle" >
                 <Icon name="sun" size="large" color="orange" inverted={darkMode} />
                 <Radio className="darkToggleSwitch" toggle size="small" onChange={() => setDarkMode(!darkMode)} checked={darkMode} />
@@ -107,11 +107,15 @@ function App() {
             </header>
             
             <DarkContext.Provider value={darkMode}>
-              <Main visible={visible} setVisible={setVisible} handleSignOut={handleSignOut} />
+              <Main 
+                visible={visible} 
+                setVisible={setVisible} 
+                // handleSignOut={handleSignOut} 
+              />
             </DarkContext.Provider>
             <Footer />
-          </>
-      }
+          {/* </>
+      } */}
     </div>
   );
 }
